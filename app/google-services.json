@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "511118093577",
+    "firebase_url": "https://login-register-cb9f6-default-rtdb.firebaseio.com",
+    "project_id": "login-register-cb9f6",
+    "storage_bucket": "login-register-cb9f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511118093577:android:81fb3f1dcfc2fbd295f7d8",
+        "android_client_info": {
+          "package_name": "com.example.loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511118093577-ai69tmm77t4vkitmmetk1ncuajgmn9p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbmqp0RpvagxFiGsFqQKtmnB4HfDce9UM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511118093577-ai69tmm77t4vkitmmetk1ncuajgmn9p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511118093577:android:2385627be7a4182c95f7d8",
+        "android_client_info": {
+          "package_name": "com.example.task2loginregister"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511118093577-ai69tmm77t4vkitmmetk1ncuajgmn9p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbmqp0RpvagxFiGsFqQKtmnB4HfDce9UM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511118093577-ai69tmm77t4vkitmmetk1ncuajgmn9p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511118093577:android:586fe839c45a55cd95f7d8",
+        "android_client_info": {
+          "package_name": "com.varsitycollege.cardocity_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511118093577-ai69tmm77t4vkitmmetk1ncuajgmn9p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbmqp0RpvagxFiGsFqQKtmnB4HfDce9UM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511118093577-ai69tmm77t4vkitmmetk1ncuajgmn9p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

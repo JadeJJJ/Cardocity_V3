@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="212dp"
+        android:layout_height="141dp"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/logo1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="LOGIN"
+        android:textSize="48sp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email or Username"
+        app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/logEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:endIconMode="password_toggle"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/logPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/Log_Login"
+            android:layout_width="118dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Login" />
+
+        <TextView
+            android:id="@+id/log_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Register" />
+
+</LinearLayout>
