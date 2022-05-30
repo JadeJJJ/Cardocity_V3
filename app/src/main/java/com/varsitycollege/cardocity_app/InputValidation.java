@@ -14,6 +14,7 @@ public class InputValidation {
     {
         return !(sInput.isEmpty() || sInput.equals(null));
     }
+
     //Method to check if a string contains a number
     public boolean ContainsNumber(String sInput)
     {
