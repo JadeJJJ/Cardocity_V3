@@ -54,16 +54,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/Log_Login"
-            android:layout_width="118dp"
-            android:layout_height="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:text="Login" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+    <TextView
             android:id="@+id/log_Reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
