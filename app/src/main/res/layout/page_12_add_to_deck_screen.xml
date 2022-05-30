@@ -17,13 +17,12 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
 
-    <MultiAutoCompleteTextView
-        android:id="@+id/multiAutoCompleteTextView3"
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MultiAutoCompleteTextView"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="120dp"/>
+        android:contentDescription="@string/app_name"
+        android:minHeight="48dp" />
 
 
     <LinearLayout
@@ -36,9 +35,11 @@
             android:id="@+id/spinner4"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/button19"

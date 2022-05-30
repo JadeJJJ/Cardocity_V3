@@ -84,14 +84,12 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <MultiAutoCompleteTextView
-                android:id="@+id/multiAutoCompleteTextView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
+            <Spinner
+                android:id="@+id/spinner7"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="MultiAutoCompleteTextView"
-                android:padding="10dp"/>
+                android:contentDescription="@string/app_name" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -100,7 +98,7 @@
 
             <Button
                 android:id="@+id/button9"
-                android:layout_width="wrap_content"
+                android:layout_width="117dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Select Collection" />

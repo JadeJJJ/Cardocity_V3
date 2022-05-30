@@ -59,9 +59,10 @@
         <Spinner
             android:id="@+id/spinner3"
             android:layout_width="121dp"
-            android:layout_height="wrap_content"
+            android:layout_height="49dp"
             android:layout_marginTop="13dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name" />
 
         <Button
             android:id="@+id/button18"

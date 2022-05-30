@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="Foil" />
 
     <TextView
@@ -41,7 +42,9 @@
     <Spinner
         android:id="@+id/spinner5"
         android:layout_width="280dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:minHeight="48dp" />
 
     <TextView
         android:id="@+id/textView32"
@@ -56,6 +59,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="7" />
 
     <LinearLayout

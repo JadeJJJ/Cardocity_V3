@@ -46,11 +46,13 @@
             android:id="@+id/spinner6"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="12dp"
-            android:padding="10dp"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:minHeight="48dp"
+            android:padding="10dp" />
 
         <Button
             android:id="@+id/button22"
