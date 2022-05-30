@@ -20,9 +20,9 @@ public class InputValidation {
         boolean bFlag = false;
         char[] arrInput = sInput.toCharArray();
 
-        for(int i = 0; i < arrInput.length; i++)
+        for(char c: arrInput)
         {
-            if(Character.isDigit(arrInput[i]))
+            if(Character.isDigit(c))
             {
                 bFlag = true;
                 break;
@@ -31,7 +31,7 @@ public class InputValidation {
         return bFlag;
     }
 
-
+/* CODE NOT NEEDED ---------------------------------------------------------------------------------
     // method to validate if it is a valid username
     public boolean ValidateUsername(String sUsername)
     {
@@ -67,10 +67,10 @@ public class InputValidation {
         }
 
         return bFlag;
-    }
+    } */
 
     // this method shows an error message with the string it is given
-    private void ErrorMessage(String sError)
+    private void ErrMsg(String sError)
     {
         Toast.makeText(null, sError, Toast.LENGTH_SHORT).show();
     }
