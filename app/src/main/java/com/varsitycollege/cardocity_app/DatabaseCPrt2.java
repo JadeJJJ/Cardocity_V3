@@ -28,11 +28,20 @@ public class DatabaseCPrt2 {
     // private DatabaseReference userRef = database.getReference("tableName");
 
     private static FirebaseAuth userRef = FirebaseAuth.getInstance();
+
     //Item Table
     private DatabaseReference itemRef = database.getReference("Item");
 
+    //Deck Table
+    private DatabaseReference deckRef = database.getReference("Deck");
+
+    //Collection Table
+    private DatabaseReference collRef = database.getReference("Collection");
+
     //Lists for storing the data
     private List<Item> itemList = new ArrayList<Item>();
+    private List<Deck> deckList = new ArrayList<Deck>();
+    private List<Collection> collList = new ArrayList<Collection>();
 
     private static boolean flag = false;
 
@@ -70,7 +79,8 @@ public class DatabaseCPrt2 {
         return flag;
     }
 
-    public boolean GetItem(){
+    //---------------------------------GetItem-----------------------------//
+    public List<Item> GetItem(){
         itemRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -78,7 +88,6 @@ public class DatabaseCPrt2 {
                     Item item = pulledLogin.getValue(Item.class);
                     itemList.add(item);
                 }
-                flag = true;
             }
 
             @Override
@@ -87,10 +96,61 @@ public class DatabaseCPrt2 {
             }
         });
 
-        return flag;
+        return itemList;
     }
 
+    //---------------------------------SetItem-----------------------------//
     public void SetItem(Item newItem) {
         itemRef.push().setValue(newItem);
+    }
+
+    //---------------------------------GetDeck-----------------------------//
+    public List<Deck> GetDeck(){
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledLogin : snapshot.getChildren()) {
+                    Deck deck = pulledLogin.getValue(Deck.class);
+                    deckList.add(deck);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                flag = false;
+            }
+        });
+
+        return deckList;
+    }
+
+    //---------------------------------SetDeck-----------------------------//
+    public void SetDeck(Deck newDeck) {
+        deckRef.push().setValue(newDeck);
+    }
+
+    //---------------------------------GetCollection-----------------------------//
+    public List<Collection> GetCollection(){
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledLogin : snapshot.getChildren()) {
+                    Collection coll = pulledLogin.getValue(Collection.class);
+                    collList.add(coll);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                flag = false;
+            }
+        });
+
+        return collList;
+    }
+
+    //---------------------------------SetCollection-----------------------------//
+    public void SetDeck(Collection newColl) {
+        collRef.push().setValue(newColl);
     }
 }
