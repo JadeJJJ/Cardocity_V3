@@ -17,9 +17,7 @@ public class Home_Page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_10_collection_screen);
-
-
+        setContentView(R.layout.page_2_collection_screen);
 
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
