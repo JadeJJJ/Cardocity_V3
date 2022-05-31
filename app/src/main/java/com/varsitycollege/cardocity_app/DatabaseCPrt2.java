@@ -49,8 +49,6 @@ public class DatabaseCPrt2 {
     public static boolean GetLogin(String email, String password) {
         userRef = FirebaseAuth.getInstance();
         userRef.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {

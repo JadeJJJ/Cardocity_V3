@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardocity_APP">
         <activity
+            android:name=".Camera_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Home_Page"
             android:exported="false" />
         <activity
