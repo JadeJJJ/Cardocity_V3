@@ -19,24 +19,29 @@ public class Home_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_10_collection_screen);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
 
-        mDrawerLayout.addDrawerListener(mToggle);//DylanA
-        mToggle.syncState();//DylanA
 
+
+        // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA
+        mDrawerLayout.addDrawerListener(mToggle);//DylanA
+
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
+        mToggle.syncState();//DylanA
     }
 //enable action bar tabbing DylanA
 
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
-//
-//        if(mToggle.onOptionsItemSelected(item)){//DylanA
-//            return true;//DylanA
-//        }
-//
-//        return super.onOptionsItemSelected(item);//DylanA
-//    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
+
+        if(mToggle.onOptionsItemSelected(item)){//DylanA
+            return true;//DylanA
+        }
+
+        return super.onOptionsItemSelected(item);//DylanA
+    }
 }
