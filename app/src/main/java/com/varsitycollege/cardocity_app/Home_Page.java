@@ -16,7 +16,7 @@ public class Home_Page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_10_collection_screen);
+        setContentView(R.layout.page_10_collection_screen);//DylanA
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
