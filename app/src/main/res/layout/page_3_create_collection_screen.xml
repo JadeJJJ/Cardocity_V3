@@ -69,7 +69,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/Create_Collection"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

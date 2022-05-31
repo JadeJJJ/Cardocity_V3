@@ -65,7 +65,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/HP_Create_Collection"
                 android:layout_width="92dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -97,7 +97,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/HP_Select_Collection"
                 android:layout_width="117dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

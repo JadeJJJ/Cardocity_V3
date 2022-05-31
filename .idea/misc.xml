@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_camera.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_home_page.xml" value="0.1125" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_register.xml" value="0.5" />
@@ -21,11 +22,6 @@
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/page_6_cards_in_collection_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/page_8_camera_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/page_9_update_deck_screen.xml" value="0.36666666666666664" />
-        <entry key="..\:/Varsity College 3rd Year/OPSC7311/Cardocity_V3/app/src/main/res/layout/activity_camera.xml" value="0.46770833333333334" />
-        <entry key="..\:/Varsity College 3rd Year/OPSC7311/Cardocity_V3/app/src/main/res/layout/page_2_collection_screen.xml" value="0.36666666666666664" />
-        <entry key="..\:/Varsity College 3rd Year/OPSC7311/Cardocity_V3/app/src/main/res/layout/page_3_create_collection_screen.xml" value="0.36666666666666664" />
-        <entry key="..\:/Varsity College 3rd Year/OPSC7311/Cardocity_V3/app/src/main/res/layout/page_6_cards_in_collection_screen.xml" value="0.36666666666666664" />
-        <entry key="..\:/Varsity College 3rd Year/OPSC7311/Cardocity_V3/app/src/main/res/layout/page_8_camera_screen.xml" value="0.35507246376811596" />
       </map>
     </option>
   </component>
