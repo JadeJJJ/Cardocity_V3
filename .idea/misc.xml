@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_add_item.xml" value="0.66796875" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_camera.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_cards_in_collection.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_collection_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_create_collection.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_create_new_collection.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_edit_collection.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_home_page.xml" value="0.1125" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lab_services_student/AndroidStudioProjects/Cardocity_APP/app/src/main/res/layout/activity_register.xml" value="0.5" />

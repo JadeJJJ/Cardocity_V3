@@ -10,8 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 
-public class Home_Page extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
+
+public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Button CreateCollectionBtn;
+    Button SelectCollectionBTN;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
 
@@ -24,6 +27,12 @@ CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
         CreateCollectionBtn.setOnClickListener(view -> {
             startActivity(new Intent(Home_Page.this,Create_Collection.class));
         });
+        SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
+        SelectCollectionBTN.setOnClickListener(view ->{
+            startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+
+    });
+
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -45,5 +54,20 @@ CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
         }
 
         return super.onOptionsItemSelected(item);//DylanA
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.nav_decks:
+                startActivity(new Intent(Home_Page.this, Create_Collection.class));
+                break;
+
+        }
+
+
+
+
+        return true;
     }
 }

@@ -85,7 +85,7 @@
         android:paddingRight="30dp">
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/deleteCollectionButton"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -97,7 +97,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/updateCollectionButton"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_weight="1"

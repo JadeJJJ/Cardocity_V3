@@ -29,13 +29,13 @@
             android:text="Serial Number" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName9"
+            android:id="@+id/serialNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/app_name"
             android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="St45434" />
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/textView12"
@@ -44,13 +44,13 @@
             android:text="Card Name" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName10"
+            android:id="@+id/cardName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/app_name"
             android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="Lion" />
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/textView13"
@@ -59,22 +59,22 @@
             android:text="Card Type" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName11"
+            android:id="@+id/cardType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/app_name"
             android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="Creature" />
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No. of Cards" />
+            android:text="Number Of Cards" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName12"
+            android:id="@+id/numberOfCards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -105,7 +105,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/take_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -124,7 +124,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/addItemButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
