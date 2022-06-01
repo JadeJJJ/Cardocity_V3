@@ -54,11 +54,12 @@ public class MainActivity extends AppCompatActivity {
         }else{
             boolean flag = DatabaseCPrt2.GetLogin(email, password);
 
-            if (flag == true) {
+            // slightly improved
+            if (flag) {
                 Toast.makeText(MainActivity.this,"You have Been Logged In!!!",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, Home_Page.class));
             }
-            else if (flag == false) {
+            else{
                 Toast.makeText(MainActivity.this, "You have Not Been Logged In!!!", Toast.LENGTH_SHORT).show();
             }
         }

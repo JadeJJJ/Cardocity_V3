@@ -98,8 +98,7 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------SetItem-----------------------------//
-    public void SetItem(Item newItem) {
-        itemRef.push().setValue(newItem);
+    public void SetItem(Item newItem) {itemRef.push().setValue(newItem);
     }
 
     //---------------------------------GetDeck-----------------------------//
