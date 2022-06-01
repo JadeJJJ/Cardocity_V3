@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class DatabaseCPrt2 {
@@ -150,4 +151,13 @@ public class DatabaseCPrt2 {
     public void SetDeck(Collection newColl) {
         collRef.push().setValue(newColl);
     }
+
+    //---------------------------------UpdateCollection-----------------------------//
+    private void updateCollection(Collection edtColl) {
+        HashMap myMap = new HashMap();
+        myMap.put("Collection ID", edtColl.getCollectionID());
+        myMap.put("Collection Name", edtColl.getCollectionName());
+        myMap.put("Goal Items", edtColl.getGoalItems());
+    }
+
 }
