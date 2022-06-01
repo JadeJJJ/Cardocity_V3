@@ -25,14 +25,14 @@ public class Create_Collection extends AppCompatActivity {
         createCollectionBtn = findViewById(R.id.Create_Collection);
 
         createCollectionBtn.setOnClickListener(view -> {
-            //Create Collection Method
+            //TODO Create Collection Method
 
 
         });
 
 
 
-
+// NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -42,6 +42,7 @@ public class Create_Collection extends AppCompatActivity {
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
         mToggle.syncState();//DylanA
+// -------------------------------------------------------------------------------------------------
     }
 
     @Override

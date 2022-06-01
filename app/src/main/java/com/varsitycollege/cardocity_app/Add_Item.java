@@ -40,6 +40,8 @@ Button addItemBtn;
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
 
+           // TODO Take a picture functionality
+
            if (!iv.NotNullorEmpty(serialNumber))
            {
                bFlag = false;
@@ -88,7 +90,6 @@ Button addItemBtn;
 
         takePhotoBtn.setOnClickListener(view -> {
             startActivity(new Intent(Add_Item.this,Camera_Activity.class));
-
 
     });
     }

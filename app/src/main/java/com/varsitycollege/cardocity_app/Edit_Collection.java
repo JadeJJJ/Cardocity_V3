@@ -19,15 +19,14 @@ Button deletedCollectionBtn;
 
 
         updateCollectionBtn.setOnClickListener(view -> {
-
-            //Update Collection method
-            //push back to Collection screen when done
+            //TODO Update Collection method
+            //TODO push back to Collection screen when done
 
         });
 
         deletedCollectionBtn.setOnClickListener(view -> {
-            //Delete Collection Method
-            //Push back to Collection Screen when done
+            //TODO Delete Collection Method
+            //TODO Push back to Collection Screen when done
 
 
         });

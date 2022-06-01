@@ -20,17 +20,26 @@ Button btnAddToDeck;
         btnSelect = findViewById(R.id.btnSelectItem);
         btnAddToDeck = findViewById(R.id.btnAddtoDeck);
 
-
+        // TODO Add items from the database to the list
 
         editCollectionBtn.setOnClickListener(view -> {
-
             startActivity(new Intent(Cards_In_Collection.this,Edit_Collection.class));
 
         });
 
         addItemBtn.setOnClickListener(view -> {
             startActivity(new Intent(Cards_In_Collection.this,Add_Item.class));
-    });
+         });
+
+        btnSelect.setOnClickListener(view ->{
+            // TODO Check that the item exists (if not the display an error)
+            // TODO URGENT: Once the item is found then what??
+        });
+
+        btnAddToDeck.setOnClickListener(view -> {
+            // TODO Check deck exists??
+            // TODO Add selected card to entered deck
+        });
 
     }
 }

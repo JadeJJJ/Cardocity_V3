@@ -33,6 +33,7 @@ CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
 
     });
 
+// NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -42,6 +43,7 @@ CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
         mToggle.syncState();//DylanA
+// -------------------------------------------------------------------------------------------------
     }
 //enable action bar tabbing DylanA
 
