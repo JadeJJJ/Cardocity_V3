@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+//Reference STManual StartSucks Activity
 public class Camera_Activity extends AppCompatActivity {
 
     private FloatingActionButton fabButton;
