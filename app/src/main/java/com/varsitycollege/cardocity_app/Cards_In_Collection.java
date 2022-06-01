@@ -33,11 +33,12 @@ Button btnAddToDeck;
 
         btnSelect.setOnClickListener(view ->{
             // TODO Check that the item exists (if not the display an error)
-            // TODO URGENT: Once the item is found then what??
+            // TODO Once the item is found go to edit items screen
         });
 
+        // TODO Remove button and put in edit item
         btnAddToDeck.setOnClickListener(view -> {
-            // TODO Check deck exists??
+            // TODO Check deck exists
             // TODO Add selected card to entered deck
         });
 
