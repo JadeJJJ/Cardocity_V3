@@ -1,6 +1,9 @@
 package com.varsitycollege.cardocity_app;
 
+import android.content.Context;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 public class InputValidation {
     //Constructor method
@@ -24,6 +27,23 @@ public class InputValidation {
         for(char c: arrInput)
         {
             if(Character.isDigit(c))
+            {
+                bFlag = true;
+                break;
+            }
+        }
+        return bFlag;
+    }
+
+    //Method to check if a string contains an Uppercase character
+    public boolean ContainsUpcase(String sInput)
+    {
+        boolean bFlag = false;
+        char[] arrInput = sInput.toCharArray();
+
+        for(char c: arrInput)
+        {
+            if(Character.isUpperCase(c))
             {
                 bFlag = true;
                 break;
@@ -71,11 +91,29 @@ public class InputValidation {
     } */
 
     // this method shows an error message with the string it is given
-    private void ErrMsg(String sError)
-    {
-        Toast.makeText(null, sError, Toast.LENGTH_SHORT).show();
+    public void msg(String sMsg, Context context) {
+        Toast.makeText(context, sMsg, Toast.LENGTH_SHORT).show();
+    }
+
+    // validates the password
+    public boolean ValidatePassword(String sPass, Context context) {
+        if (sPass.length() == 6)
+        {
+            msg("Password Must be 6 Characters!!", context);
+            return false;
+        } else if (!ContainsNumber(sPass))
+        {
+            msg("Password Must Contain a Number!!", context);
+            return false;
+        } else if (!ContainsUpcase(sPass))
+        {
+            msg("Password Must Contain a Capital Letter!!", context);
+            return false;
+        }
+
+        return true;
     }
 
     // TODO Validate password - 6 chars, contains a number, contains capital letter
-    // TODO Validate email
+
 }

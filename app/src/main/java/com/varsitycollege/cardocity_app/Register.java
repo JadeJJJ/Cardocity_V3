@@ -44,22 +44,33 @@ public class Register extends AppCompatActivity {
     private void registerUser() {
         String email = eEmail.getText().toString().trim();
         String password = ePassword.getText().toString().trim();
+        InputValidation iv = new InputValidation();
 
         if(TextUtils.isEmpty(email)){
             eEmail.setError("Please Enter Email!!");
-        } else if (TextUtils.isEmpty(password)){
+        }
+        // this validates whether it contains an @ sign
+        else if (!email.contains("@"))
+        {
+            eEmail.setError("Please Enter a Valid Email!!");
+        } else if (TextUtils.isEmpty(password))
+        {
             ePassword.setError("Please enter Password!!");
-        }else{
-            boolean flag = DatabaseCPrt2.SetLogin(email, password);
-
-            if (flag == true)
+        } else if (iv.ValidatePassword(password, Register.this)) // validates password and sends errors on toasts
+        {
+            iv.msg("Password is Invalid!!", Register.this);
+        } else
+        {
+            // changed to contain less variables
+            if (DatabaseCPrt2.SetLogin(email, password))
             {
-                Toast.makeText(Register.this,"You have Been Registered!!!",Toast.LENGTH_SHORT).show();
+                // adding toast message using input validation
+                iv.msg("You have Been Registered!!!",Register.this);
                 startActivity(new Intent(Register.this, MainActivity.class));
             }
-            else if (flag == false)
+            else
             {
-                Toast.makeText(Register.this,"You have Not Been Registered!!!",Toast.LENGTH_SHORT).show();
+                iv.msg("You have NOT Been Registered!!!",Register.this);
             }
         }
 
