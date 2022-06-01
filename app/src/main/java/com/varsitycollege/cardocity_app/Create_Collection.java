@@ -1,37 +1,37 @@
 package com.varsitycollege.cardocity_app;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 
-import com.google.android.material.navigation.NavigationView;
-
-public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    Button CreateCollectionBtn;
-    Button SelectCollectionBTN;
+public class Create_Collection extends AppCompatActivity {
+    EditText collectionID;
+    EditText collectionName;
+    EditText goalItems;
+    Button createCollectionBtn;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_10_collection_screen);
-CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
-        CreateCollectionBtn.setOnClickListener(view -> {
-            startActivity(new Intent(Home_Page.this,Create_Collection.class));
-        });
-        SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
-        SelectCollectionBTN.setOnClickListener(view ->{
-            startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+        setContentView(R.layout.activity_create_collection);
+        collectionID = findViewById(R.id.collectionID);
+        collectionName = findViewById(R.id.collectionName);
+        goalItems = findViewById(R.id.goalItems);
+        createCollectionBtn = findViewById(R.id.Create_Collection);
 
-    });
+        createCollectionBtn.setOnClickListener(view -> {
+            //Create Collection Method
+
+
+        });
+
+
+
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
@@ -43,8 +43,6 @@ CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
         mToggle.syncState();//DylanA
     }
-//enable action bar tabbing DylanA
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
@@ -54,20 +52,5 @@ CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
         }
 
         return super.onOptionsItemSelected(item);//DylanA
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.nav_decks:
-                startActivity(new Intent(Home_Page.this, Create_Collection.class));
-                break;
-
-        }
-
-
-
-
-        return true;
     }
 }
