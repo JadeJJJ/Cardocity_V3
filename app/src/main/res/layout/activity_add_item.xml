@@ -93,7 +93,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/addItemImageView"
             android:layout_width="106dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -8,7 +8,7 @@
     tools:context=".Register">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/addItemImageView"
         android:layout_width="242dp"
         android:layout_height="141dp"
         android:layout_gravity="center_horizontal"

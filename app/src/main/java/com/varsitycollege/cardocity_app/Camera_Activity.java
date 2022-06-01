@@ -26,6 +26,8 @@ public class Camera_Activity extends AppCompatActivity {
     private static final int requestImageCapture = 0;
     private static final int requestImageCapPer = 100;
 
+    public ImageView addImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class Camera_Activity extends AppCompatActivity {
         fabButton = findViewById(R.id.photoFab);
         camImage = findViewById(R.id.camImage);
         storePhoto = findViewById(R.id.btnStorePhoto);
+
 
         fabButton.setOnClickListener(new View.OnClickListener() {
             @Override
