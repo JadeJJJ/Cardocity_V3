@@ -56,13 +56,13 @@ public class Register extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password))
         {
             ePassword.setError("Please enter Password!!");
-        } else if (iv.ValidatePassword(password, Register.this)) // validates password and sends errors on toasts
+        } else if (iv.ValidatePassword(password, Register.this) == false) // validates password and sends errors on toasts
         {
             iv.msg("Password is Invalid!!", Register.this);
         } else
         {
             // changed to contain less variables
-            if (DatabaseCPrt2.SetLogin(email, password))
+           /* if (DatabaseCPrt2.SetLogin(email, password))
             {
                 // adding toast message using input validation
                 iv.msg("You have Been Registered!!!",Register.this);
@@ -71,7 +71,19 @@ public class Register extends AppCompatActivity {
             else
             {
                 iv.msg("You have NOT Been Registered!!!",Register.this);
-            }
+            } */
+
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(Register.this,"You have Been Registered!!!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Register.this, MainActivity.class));
+                    }else{
+                        Toast.makeText(Register.this,"You have Not Been Registered!!!"+ task.getException().getMessage() ,Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
 
     }

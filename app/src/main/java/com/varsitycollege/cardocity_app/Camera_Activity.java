@@ -12,15 +12,17 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 //Reference STManual StartSucks Activity
 public class Camera_Activity extends AppCompatActivity {
-
+    public Class previousAct; //Stores previous activity
     private FloatingActionButton fabButton;
-    private ImageView camImage;
+    public ImageView camImage;
+    private Button storePhoto;
     private static final int requestImageCapture = 0;
     private static final int requestImageCapPer = 100;
 
@@ -31,6 +33,7 @@ public class Camera_Activity extends AppCompatActivity {
 
         fabButton = findViewById(R.id.photoFab);
         camImage = findViewById(R.id.camImage);
+        storePhoto = findViewById(R.id.btnStorePhoto);
 
         fabButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +47,14 @@ public class Camera_Activity extends AppCompatActivity {
                 {
                     takePhoto();
                 }
+            }
+        });
+
+        storePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(Camera_Activity.this, Add_Item.class));
             }
         });
     }

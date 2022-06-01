@@ -78,5 +78,12 @@
             android:clickable="true"
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/ic_baseline_camera_alt_24" />
+
+        <Button
+            android:id="@+id/btnStorePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Store Photo" />
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

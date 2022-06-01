@@ -16,6 +16,12 @@ EditText etCardName;
 EditText etCardType;
 EditText etNumberOfCards;
 Button addItemBtn;
+
+public Image newImage;
+private String serialNum;
+private String cardName;
+private String cardType;
+private Integer numOfCards;
 //Image variable
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,5 +98,13 @@ Button addItemBtn;
             startActivity(new Intent(Add_Item.this,Camera_Activity.class));
 
     });
+    }
+
+    private void addItem() {
+        serialNum = etSerialNumber.getText().toString();
+        cardName = etCardName.getText().toString();
+        cardType = etCardType.getText().toString();
+        numOfCards = Integer.valueOf(etNumberOfCards.getText().toString());
+        //newImage = Camera_Activity.;
     }
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     private void LoginUser(){
         String email = LoginEmail.getText().toString().trim();
         String password = LoginPassword.getText().toString().trim();
@@ -52,18 +54,40 @@ public class MainActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password)){
             LoginPassword.setError("Please enter Password!!");
         }else{
-            boolean flag = DatabaseCPrt2.GetLogin(email, password);
+            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(MainActivity.this,"You have Been Logged In!!!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, Home_Page.class));
+                    }else{
+                        Toast.makeText(MainActivity.this,"You have Not Been Logged In!!!"+ task.getException().getMessage() ,Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+   /* private void LoginUser(){
+        String email = LoginEmail.getText().toString().trim();
+        String password = LoginPassword.getText().toString().trim();
 
+        if(TextUtils.isEmpty(email)){
+            LoginEmail.setError("Please Enter Email!!");
+        } else if (TextUtils.isEmpty(password)){
+            LoginPassword.setError("Please enter Password!!");
+        }else{
+            boolean flag = DatabaseCPrt2.GetLogin(email, password);
             // slightly improved
-            if (flag) {
+            if (flag == true) {
                 Toast.makeText(MainActivity.this,"You have Been Logged In!!!",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, Home_Page.class));
             }
-            else{
+            else if (flag == false){
                 Toast.makeText(MainActivity.this, "You have Not Been Logged In!!!", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    } */
+
 
 
 }
