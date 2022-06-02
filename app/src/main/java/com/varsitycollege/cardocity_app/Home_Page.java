@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -48,8 +47,10 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
             startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
         });
 // Adding to List View------------------------------------------------------------------------------
-        List<String> collList = new ArrayList<>();
-        ListView lstvCollections = findViewById(R.id.lstvCollections);
+        List<String> collListID = new ArrayList<>();
+        List<String> collListName = new ArrayList<>();
+        ListView lstvCollectionsID = findViewById(R.id.lstvCollectionsID);
+        ListView lstvCollectionsName = findViewById(R.id.lstvCollectionsName);
         String userid = MainActivity.UserID;
         collRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -57,11 +58,16 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     com.varsitycollege.cardocity_app.Collection coll = pulledOrder.getValue(com.varsitycollege.cardocity_app.Collection.class);
                     if (Objects.equals(coll.getUserID(), userid))
-                        collList.add(coll.StringOut());
+                        //collList.add(coll.StringOut());
+                        collListID.add(coll.getCollectionID());
+                        collListName.add(coll.getCollectionName());
+
                 }
 
-                ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collList);
-                lstvCollections.setAdapter(collAdapter);
+                ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collListID);
+                lstvCollectionsID.setAdapter(collAdapter);
+                ArrayAdapter<String> collAdapterName = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collListName);
+                lstvCollectionsName.setAdapter(collAdapterName);
             }
 
             @Override

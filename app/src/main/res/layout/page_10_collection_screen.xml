@@ -52,6 +52,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="380dp">
+
+            <ListView
+                android:id="@+id/lstvCollectionsID"
+                android:layout_width="197dp"
+                android:layout_height="match_parent" />
+
+            <ListView
+                android:id="@+id/lstvCollectionsName"
+                android:layout_width="205dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal">
@@ -99,18 +115,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Select Collection" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="380dp"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/lstvCollections"
-                android:layout_width="match_parent"
-                android:layout_height="320dp" />
 
         </LinearLayout>
 

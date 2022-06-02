@@ -29,12 +29,12 @@ EditText etCardType;
 EditText etNumberOfCards;
 Button addItemBtn;
 
-public Bitmap newImage;
+/*public Bitmap newImage;
 private String serialNum;
 private String cardName;
 private String cardType;
 private Integer numOfCards;
-private String userID;
+private String userID; */
 //Image variable
 
     private Button fabButton;
@@ -61,7 +61,9 @@ private String userID;
            String serialNumber = etSerialNumber.getText().toString();
            String cardName = etCardName.getText().toString();
            String cardType = etCardType.getText().toString();
-           Integer numberOfCards = 0;
+           Bitmap newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
+           String userID = MainActivity.UserID;
+          Integer numberOfCards = 0;
            Bitmap cardImage = null; // change this later
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
@@ -107,8 +109,8 @@ private String userID;
            if (bFlag)
            {
                 //Item it = new Item(serialNumber, cardName, cardType, numberOfCards, cardImage, userID);
-                addItem();
-                Item myItem = new Item(serialNum, cardName, cardType, numberOfCards, newImage, userID);
+                //addItem();
+                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, newImage, userID);
                 db.SetItem(myItem);
                 iv.msg("Item Added!", Add_Item.this);
 
@@ -139,7 +141,7 @@ private String userID;
 
     }
 
-    private void addItem() {
+    /*private void addItem() {
         serialNum = etSerialNumber.getText().toString();
         cardName = etCardName.getText().toString();
         cardType = etCardType.getText().toString();
@@ -147,7 +149,7 @@ private String userID;
         //newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
         userID = MainActivity.UserID;
         newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
-    }
+    } */
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
