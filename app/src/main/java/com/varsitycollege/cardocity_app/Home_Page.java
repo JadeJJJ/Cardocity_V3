@@ -115,15 +115,12 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         });
 
         SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
-        /*SelectCollectionBTN.setOnClickListener(view ->{
-            startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-        }); */
         SelectCollectionBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String selectedCollection = collSpinner.getSelectedItem().toString();
                 sendSelectedCollection = selectedCollection;
-              /*  if (selectedCollection.equals(null) || selectedCollection.equals(""))
+                if (selectedCollection.equals(null) || selectedCollection.equals(""))
                 {
                     Toast.makeText(Home_Page.this, "Please select a collection!", Toast.LENGTH_SHORT).show();
                 }
@@ -131,9 +128,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 {
                     Toast.makeText(Home_Page.this, "Test 1", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-                }*/
-                Toast.makeText(Home_Page.this, "The collection is:" + selectedCollection, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+                }
             }
         });
     }
