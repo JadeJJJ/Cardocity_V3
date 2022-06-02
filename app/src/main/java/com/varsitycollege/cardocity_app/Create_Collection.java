@@ -7,8 +7,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Create_Collection extends AppCompatActivity {
     EditText collectionID;
@@ -80,6 +91,7 @@ public class Create_Collection extends AppCompatActivity {
 
 
 
+
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
@@ -102,10 +114,33 @@ public class Create_Collection extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);//DylanA
     }
-    private String GenID()
+    private Integer[] GenID()
     {
-        String sID = "";
-        return sID;
+        final Integer[] inID = {0};
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference itemRef = database.getReference("Collection");
+        List<String> itemList = new ArrayList<>();
+
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot){
+                for (DataSnapshot pulledOrder : snapshot.getChildren()){
+                    Item item = pulledOrder.getValue(Item.class);
+                    // if (Objects.equals(item.getUserID(), userid))
+                    itemList.add(item.toString());
+                    inID[0]++;
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Create_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        return inID;
     }
 
 
