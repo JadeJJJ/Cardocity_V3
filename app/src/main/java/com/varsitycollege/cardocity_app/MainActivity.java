@@ -18,10 +18,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    EditText LoginEmail;
-    EditText LoginPassword;
-    TextView RegisterTEXT;
-    Button Login_BTN;
+    private EditText LoginEmail;
+    private EditText LoginPassword;
+    private TextView RegisterTEXT;
+    private Button Login_BTN;
+    public static String UserID;
 
     FirebaseAuth mAuth;
     @Override
