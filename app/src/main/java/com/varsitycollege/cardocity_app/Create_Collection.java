@@ -3,6 +3,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -25,10 +28,56 @@ public class Create_Collection extends AppCompatActivity {
         createCollectionBtn = findViewById(R.id.Create_Collection);
 
         createCollectionBtn.setOnClickListener(view -> {
-            //TODO Create Collection Method
+
+            String ID = collectionID.getText().toString();
+            String Name = collectionName.getText().toString();
+            Integer Goal = 0;
+            boolean bFlag = true;
+            DatabaseCPrt2 db = new DatabaseCPrt2();
+            InputValidation iv = new InputValidation();
+
+            if (!iv.NotNullorEmpty(ID))
+            {
+                bFlag = false;
+                collectionID.setError("Please enter a Collection ID!!");
+            }
+
+            if (!iv.NotNullorEmpty(Name))
+            {
+                bFlag = false;
+                collectionName.setError("Please enter a Collection Name!!");
+            }
+
+            if (!iv.NotNullorEmpty(goalItems.getText().toString()))
+            {
+                bFlag = false;
+                goalItems.setError("Please enter a Goal Number!!");
+            }
+            else
+            {
+                try
+                {
+                    Goal = Integer.parseInt(goalItems.getText().toString());
+                } catch(Exception ex)
+                {
+                    bFlag = false;
+                    goalItems.setError("Goal Number is invalid!!");
+                }
+            }
+
+            if (bFlag)
+            {
+                Collection coll = new Collection(ID, Name, Goal);
+                db.SetDeck(coll);
+                iv.msg("Collection Created!!", Create_Collection.this);
+                startActivity(new Intent(Create_Collection.this,Cards_In_Collection.class));
+            }
+            else
+                iv.msg("Failed to Create Collection!!", Create_Collection.this);
 
 
         });
+
 
 
 
@@ -54,4 +103,6 @@ public class Create_Collection extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);//DylanA
     }
+
+
 }

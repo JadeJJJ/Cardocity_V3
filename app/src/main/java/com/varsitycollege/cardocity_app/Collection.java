@@ -38,6 +38,11 @@ public class Collection {
         this.goalItems = goalItems;
     }
 
+    public String StringOut()
+    {
+        return "ID:\t"+getCollectionID() + "\tName:\t" + getCollectionName() + "\tGoal:\t" + getGoalItems();
+    }
+
 
 
 }

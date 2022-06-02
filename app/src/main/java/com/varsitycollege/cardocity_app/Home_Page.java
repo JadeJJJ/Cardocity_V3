@@ -8,37 +8,68 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    Button CreateCollectionBtn;
-    Button SelectCollectionBTN;
-    Button ViewGoalsBTN;
+    private Button CreateCollectionBtn;
+    private Button SelectCollectionBTN;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference collRef = database.getReference("Collection");
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_10_collection_screen);
-        //Create Collection Button------------------------------------------------------------------
+// Button Clicks------------------------------------------------------------------------------------
         CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
         CreateCollectionBtn.setOnClickListener(view -> {
             startActivity(new Intent(Home_Page.this,Create_Collection.class));
         });
-        //Select Collection Button------------------------------------------------------------------
         SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
         SelectCollectionBTN.setOnClickListener(view ->{
             startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+    });
+// Adding to List View------------------------------------------------------------------------------
+        List<String> collList = new ArrayList<>();
+        ListView lstvCollections = findViewById(R.id.lstvCollections);
+        collRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot){
+                for (DataSnapshot pulledOrder : snapshot.getChildren()){
+                    Collection order = pulledOrder.getValue(Collection.class);
+                    collList.add(order.toString());
+                }
+
+                // create the adapter to display the items
+
+                ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collList);
+                lstvCollections.setAdapter(collAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Home_Page.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
+            }
         });
-        //View Goals Button-------------------------------------------------------------------------
-        ViewGoalsBTN = findViewById(R.id.HP_View_Goals);
-        ViewGoalsBTN.setOnClickListener(view ->{
-            startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));//TO DO: Create ViewGoals Activity
-        } );
+
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA

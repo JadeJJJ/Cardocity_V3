@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class Cards_In_Collection extends AppCompatActivity {
-Button addItemBtn;
-Button editCollectionBtn;
-Button btnSelect;
-Button btnAddToDeck;
+    private Button addItemBtn;
+    private Button editCollectionBtn;
+    private Button btnSelect;
+    private Button btnAddToDeck;
+    private ListView lstvOrderHistory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +22,9 @@ Button btnAddToDeck;
         btnSelect = findViewById(R.id.btnSelectItem);
         btnAddToDeck = findViewById(R.id.btnAddtoDeck);
 
-        // TODO Add items from the database to the list
+
+        // TODO Add items from the database to the list in a collection
+
 
         editCollectionBtn.setOnClickListener(view -> {
             startActivity(new Intent(Cards_In_Collection.this,Edit_Collection.class));
