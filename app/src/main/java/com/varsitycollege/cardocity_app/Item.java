@@ -11,13 +11,15 @@ public class Item {
     //private Image cardImage;
     private String userID;
     private Bitmap cardImage;
+    private String collectionName;
 
-    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, Bitmap cardImage, String userID) {
+    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, Bitmap cardImage, String collectionName, String userID) {
         this.serialNumber = serialNumber;
         this.cardName = cardName;
         this.cardType = cardType;
         this.numberOfCards = numberOfCards;
         this.cardImage = cardImage;
+        this.collectionName = collectionName;
         this.userID = userID;
     }
 
@@ -70,5 +72,13 @@ public class Item {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public String getCollectionName() {
+        return collectionName;
+    }
+
+    public void setCollectionName(String collectionName) {
+        this.collectionName = collectionName;
     }
 }

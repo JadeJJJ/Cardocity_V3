@@ -63,6 +63,7 @@ private String userID; */
            String cardType = etCardType.getText().toString();
            Bitmap newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
            String userID = MainActivity.UserID;
+           String collection = Home_Page.selectedCollection;
           Integer numberOfCards = 0;
            Bitmap cardImage = null; // change this later
            boolean bFlag = true;
@@ -110,7 +111,7 @@ private String userID; */
            {
                 //Item it = new Item(serialNumber, cardName, cardType, numberOfCards, cardImage, userID);
                 //addItem();
-                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, newImage, userID);
+                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, newImage, collection, userID);
                 db.SetItem(myItem);
                 iv.msg("Item Added!", Add_Item.this);
 

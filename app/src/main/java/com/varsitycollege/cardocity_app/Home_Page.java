@@ -8,9 +8,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -27,10 +30,13 @@ import java.util.Objects;
 public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Button CreateCollectionBtn;
     private Button SelectCollectionBTN;
+    private Spinner collSpinner;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference collRef = database.getReference("Collection");
+
+    public static String selectedCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +49,24 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         });
 
         SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
-        SelectCollectionBTN.setOnClickListener(view ->{
+        /*SelectCollectionBTN.setOnClickListener(view ->{
             startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+        }); */
+        SelectCollectionBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedCollection = collSpinner.getSelectedItem().toString();
+                if (selectedCollection.equals(null) || selectedCollection.equals(""))
+                {
+                    Toast.makeText(Home_Page.this, "Please select a collection!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(Home_Page.this, "Test 1", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+                }
+
+            }
         });
 // Adding to List View------------------------------------------------------------------------------
         List<String> collListID = new ArrayList<>();
@@ -87,6 +109,26 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
         mToggle.syncState();//DylanA
 // -------------------------------------------------------------------------------------------------
+    //Spinner adding
+        collSpinner = findViewById(R.id.spnCollections);
+        ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_spinner_dropdown_item, collListName);
+        spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        collSpinner.setAdapter(spnAdapter);
+
+    //Spinner listener
+        collSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedCollection = collSpinner.getSelectedItem().toString();
+                Toast.makeText(Home_Page.this, selectedCollection, Toast.LENGTH_SHORT).show();
+                //selectedCollection = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 //enable action bar tabbing DylanA
 
@@ -109,10 +151,6 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 break;
 
         }
-
-
-
-
         return true;
     }
 }
