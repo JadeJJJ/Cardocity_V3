@@ -57,7 +57,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     com.varsitycollege.cardocity_app.Collection coll = pulledOrder.getValue(com.varsitycollege.cardocity_app.Collection.class);
                     if (Objects.equals(coll.getUserID(), userid))
-                        collList.add(coll.toString());
+                        collList.add(coll.StringOut());
                 }
 
                 ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collList);
