@@ -102,6 +102,11 @@ public class Create_Collection extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);//DylanA
     }
+    private String GenID()
+    {
+        String sID = "";
+        return sID;
+    }
 
 
 }

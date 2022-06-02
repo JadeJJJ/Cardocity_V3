@@ -42,32 +42,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_10_collection_screen);
-// Button Clicks------------------------------------------------------------------------------------
-        CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
-        CreateCollectionBtn.setOnClickListener(view -> {
-            startActivity(new Intent(Home_Page.this,Create_Collection.class));
-        });
 
-        SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
-        /*SelectCollectionBTN.setOnClickListener(view ->{
-            startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-        }); */
-        SelectCollectionBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectedCollection = collSpinner.getSelectedItem().toString();
-                if (selectedCollection.equals(null) || selectedCollection.equals(""))
-                {
-                    Toast.makeText(Home_Page.this, "Please select a collection!", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(Home_Page.this, "Test 1", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-                }
-
-            }
-        });
 // Adding to List View------------------------------------------------------------------------------
         List<String> collListID = new ArrayList<>();
         List<String> collListName = new ArrayList<>();
@@ -124,8 +99,36 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 //selectedCollection = adapterView.getItemAtPosition(i).toString();
             }
 
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+// Button Clicks------------------------------------------------------------------------------------
+        CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
+        CreateCollectionBtn.setOnClickListener(view -> {
+            startActivity(new Intent(Home_Page.this,Create_Collection.class));
+        });
+
+        SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
+        /*SelectCollectionBTN.setOnClickListener(view ->{
+            startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+        }); */
+        SelectCollectionBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedCollection = collSpinner.getSelectedItem().toString();
+                if (selectedCollection.equals(null) || selectedCollection.equals(""))
+                {
+                    Toast.makeText(Home_Page.this, "Please select a collection!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(Home_Page.this, "Test 1", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+                }
 
             }
         });
