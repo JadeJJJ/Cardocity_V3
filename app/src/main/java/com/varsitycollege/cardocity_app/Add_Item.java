@@ -9,6 +9,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -28,11 +29,12 @@ EditText etCardType;
 EditText etNumberOfCards;
 Button addItemBtn;
 
-public Image newImage;
+public Bitmap newImage;
 private String serialNum;
 private String cardName;
 private String cardType;
 private Integer numOfCards;
+private String userID;
 //Image variable
 
     private Button fabButton;
@@ -60,7 +62,7 @@ private Integer numOfCards;
            String cardName = etCardName.getText().toString();
            String cardType = etCardType.getText().toString();
            Integer numberOfCards = 0;
-           Image cardImage = null; // change this later
+           Bitmap cardImage = null; // change this later
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
 
@@ -104,8 +106,12 @@ private Integer numOfCards;
 
            if (bFlag)
            {
-                Item it = new Item(serialNumber, cardName, cardType, numberOfCards, cardImage);
-                db.SetItem(it);
+                //Item it = new Item(serialNumber, cardName, cardType, numberOfCards, cardImage, userID);
+                addItem();
+                Item myItem = new Item(serialNum, cardName, cardType, numberOfCards, newImage, userID);
+                db.SetItem(myItem);
+                iv.msg("Item Added!", Add_Item.this);
+
            }
            else
                iv.msg("Failed to Add Item!!", Add_Item.this);
@@ -138,7 +144,9 @@ private Integer numOfCards;
         cardName = etCardName.getText().toString();
         cardType = etCardType.getText().toString();
         numOfCards = Integer.valueOf(etNumberOfCards.getText().toString());
-        //newImage = camImage.getDrawable();
+        //newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
+        userID = MainActivity.UserID;
+        newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
     }
 
     @Override
