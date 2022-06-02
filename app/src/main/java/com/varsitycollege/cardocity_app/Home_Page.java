@@ -8,15 +8,30 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    Button CreateCollectionBtn;
-    Button SelectCollectionBTN;
+    private Button CreateCollectionBtn;
+    private Button SelectCollectionBTN;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference collRef = database.getReference("Collection");
+
 
 
     @Override
@@ -32,6 +47,28 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         SelectCollectionBTN.setOnClickListener(view ->{
             startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
     });
+// Adding to List View------------------------------------------------------------------------------
+        List<String> collList = new ArrayList<>();
+        ListView lstvCollections = findViewById(R.id.lstvCollections);
+        collRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot){
+                for (DataSnapshot pulledOrder : snapshot.getChildren()){
+                    Collection order = pulledOrder.getValue(Collection.class);
+                    collList.add(order.toString());
+                }
+
+                // create the adapter to display the items
+
+                ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collList);
+                lstvCollections.setAdapter(collAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Home_Page.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
