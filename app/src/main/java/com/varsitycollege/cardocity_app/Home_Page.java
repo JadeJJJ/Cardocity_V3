@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Button CreateCollectionBtn;
     Button SelectCollectionBTN;
+    Button ViewGoalsBTN;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
 
@@ -32,9 +33,12 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
         SelectCollectionBTN.setOnClickListener(view ->{
             startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-
-    });
-
+        });
+        //View Goals Button-------------------------------------------------------------------------
+        ViewGoalsBTN = findViewById(R.id.HP_View_Goals);
+        ViewGoalsBTN.setOnClickListener(view ->{
+            startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));//TO DO: Create ViewGoals Activity
+        } );
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
