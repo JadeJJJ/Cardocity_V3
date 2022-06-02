@@ -63,7 +63,7 @@ private String userID; */
            String cardType = etCardType.getText().toString();
            Bitmap newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
            String userID = MainActivity.UserID;
-           String collection = Home_Page.selectedCollection;
+           String collection = Home_Page.sendSelectedCollection;
           Integer numberOfCards = 0;
            Bitmap cardImage = null; // change this later
            boolean bFlag = true;

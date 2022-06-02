@@ -97,14 +97,13 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+
             <Spinner
                 android:id="@+id/spnCollections"
                 android:layout_width="221dp"
                 android:layout_height="48dp"
-                android:contentDescription="@string/app_name"
-                android:spinnerMode="dropdown"
-                />
-
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name" />
 
             <Space
                 android:layout_width="wrap_content"
