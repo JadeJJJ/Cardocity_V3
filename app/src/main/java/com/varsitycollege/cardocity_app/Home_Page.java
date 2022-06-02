@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Button CreateCollectionBtn;
@@ -55,7 +56,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     com.varsitycollege.cardocity_app.Collection coll = pulledOrder.getValue(com.varsitycollege.cardocity_app.Collection.class);
-                    if (coll.getUserID() == userid)
+                    if (Objects.equals(coll.getUserID(), userid))
                         collList.add(coll.toString());
                 }
 
