@@ -4,17 +4,25 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +36,11 @@ public class Cards_In_Collection extends AppCompatActivity {
     private ListView lstvOrderHistory;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference itemRef = database.getReference("Item");
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+    public static String selectedItem;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +51,18 @@ public class Cards_In_Collection extends AppCompatActivity {
         btnAddToDeck = findViewById(R.id.btnAddtoDeck);
 
 
+
         // TODO Add items from the database to the list in a collection
 // Adding to List View------------------------------------------------------------------------------
         List<String> itemListName = new ArrayList<>();
+        List<String> itemListType = new ArrayList<>();
+        List<String> itemListNumCards = new ArrayList<>();
         ListView lstvCardsName = findViewById(R.id.lstvCardsName);
+        ListView lstvCardsType = findViewById(R.id.lstvCardsType);
+        ListView lstvCardsNumCards = findViewById(R.id.lstvCardsNumCards);
         String userid = MainActivity.UserID;
-        String sLine = "";
+        Spinner itemSpinner = findViewById(R.id.spnSelectItem);
+
         itemRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
@@ -52,13 +71,23 @@ public class Cards_In_Collection extends AppCompatActivity {
                     if (Objects.equals(item.getUserID(), userid))
                     {
                         itemListName.add(item.getCardName());
+                        itemListType.add(item.getCardType());
+                        itemListNumCards.add(item.getNumberOfCards().toString());
+
                     }
                 }
 
                 ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListName);
                 lstvCardsName.setAdapter(itemNameAdapter);
-                ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListName);
-                lstvCardsName.setAdapter(collAdapter);
+                ArrayAdapter<String> itemTypeAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListType);
+                lstvCardsType.setAdapter(itemTypeAdapter);
+                ArrayAdapter<String> itemNumAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListNumCards);
+                lstvCardsNumCards.setAdapter(itemNumAdapter);
+
+                ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_spinner_item, itemListName);
+                spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                itemSpinner.setAdapter(spnAdapter);
+
             }
 
             @Override
@@ -79,6 +108,8 @@ public class Cards_In_Collection extends AppCompatActivity {
         btnSelect.setOnClickListener(view ->{
             // TODO Check that the item exists (if not the display an error)
             // TODO Once the item is found go to edit items screen
+            selectedItem = itemSpinner.getSelectedItem().toString();
+            startActivity(new Intent(Cards_In_Collection.this,View_Item.class));
         });
 
         // TODO Remove button and put in edit item

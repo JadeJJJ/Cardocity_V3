@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="5dp">
-
+    tools:context=".View_Item">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/nav_toolbar"
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Edit Item"
+        android:text="View Item"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
@@ -33,10 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+
         android:ems="10"
+        android:hint="@string/app_name"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Name" />
+        android:minHeight="48dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -49,11 +51,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+
         android:ems="10"
+        android:hint="@string/app_name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:singleLine="true"
-        android:text="Name" />
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/textView3"
@@ -66,11 +69,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+
         android:ems="10"
+        android:hint="@string/app_name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:singleLine="true"
-        android:text="Name" />
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/textView5"
@@ -83,11 +87,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+
         android:ems="10"
+        android:hint="@string/app_name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:singleLine="true"
-        android:text="Name" />
+        android:singleLine="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,13 +108,6 @@
             android:layout_weight="1"
             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="25dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="Take Photo" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -118,18 +116,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="25dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="Delete Item" />
-
-        <Button
             android:id="@+id/btnReturn"
             android:layout_width="25dp"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Update Item" />
+            android:text="Return" />
 
     </LinearLayout>
 

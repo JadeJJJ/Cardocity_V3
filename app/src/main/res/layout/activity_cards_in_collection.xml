@@ -22,13 +22,13 @@
 
         <ListView
             android:id="@+id/lstvCardsName"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="380dp"
             android:padding="2dp" />
 
         <ListView
             android:id="@+id/lstvCardsType"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:padding="2dp" />
 
@@ -37,13 +37,6 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:padding="2dp" />
-
-        <ListView
-            android:id="@+id/lstvCardsimage"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:padding="2dp" />
-
 
 
     </LinearLayout>
@@ -72,7 +65,7 @@
         <Button
             android:id="@+id/editCollectionButton"
             android:layout_width="95dp"
-            android:layout_height="55dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:text="Edit Collection" />
 
@@ -88,13 +81,13 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
-        <SearchView
+        <Spinner
+            android:id="@+id/spnSelectItem"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name" />
 
-
-        </SearchView>
         <Space
             android:layout_width="5dp"
             android:layout_height="60dp"

@@ -8,7 +8,7 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivImageView"
         android:layout_width="212dp"
         android:layout_height="141dp"
         android:layout_gravity="center_horizontal"
