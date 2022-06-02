@@ -49,7 +49,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
 // Adding to List View------------------------------------------------------------------------------
         List<String> collList = new ArrayList<>();
         ListView lstvCollections = findViewById(R.id.lstvCollections);
-        Integer userid = MainActivity.UserID;
+        String userid = MainActivity.UserID;
         collRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){

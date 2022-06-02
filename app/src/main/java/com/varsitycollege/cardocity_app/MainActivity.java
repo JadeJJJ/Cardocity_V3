@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText LoginPassword;
     private TextView RegisterTEXT;
     private Button Login_BTN;
-    public static Integer UserID;
+    public static String UserID;
 
     FirebaseAuth mAuth;
     @Override
