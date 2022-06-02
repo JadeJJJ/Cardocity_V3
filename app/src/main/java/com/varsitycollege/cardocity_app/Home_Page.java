@@ -30,13 +30,14 @@ import java.util.Objects;
 public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Button CreateCollectionBtn;
     private Button SelectCollectionBTN;
-    private Spinner collSpinner;
+    //private Spinner collSpinner;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference collRef = database.getReference("Collection");
 
-    public static String selectedCollection;
+    //public static String selectedCollection;
+    public static String sendSelectedCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         List<String> collListName = new ArrayList<>();
         ListView lstvCollectionsID = findViewById(R.id.lstvCollectionsID);
         ListView lstvCollectionsName = findViewById(R.id.lstvCollectionsName);
+        Spinner collSpinner = findViewById(R.id.spnCollections);
         String userid = MainActivity.UserID;
         collRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -55,7 +57,6 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     com.varsitycollege.cardocity_app.Collection coll = pulledOrder.getValue(com.varsitycollege.cardocity_app.Collection.class);
                     if (Objects.equals(coll.getUserID(), userid))
-                        //collList.add(coll.StringOut());
                         collListID.add(coll.getCollectionID());
                         collListName.add(coll.getCollectionName());
 
@@ -65,6 +66,12 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 lstvCollectionsID.setAdapter(collAdapter);
                 ArrayAdapter<String> collAdapterName = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collListName);
                 lstvCollectionsName.setAdapter(collAdapterName);
+
+
+
+                ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_spinner_item, collListName);
+                spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                collSpinner.setAdapter(spnAdapter);
             }
 
             @Override
@@ -84,14 +91,9 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
         mToggle.syncState();//DylanA
 // -------------------------------------------------------------------------------------------------
-    //Spinner adding
-        collSpinner = findViewById(R.id.spnCollections);
-        ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_spinner_dropdown_item, collListName);
-        spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        collSpinner.setAdapter(spnAdapter);
 
     //Spinner listener
-        collSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+       /* collSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedCollection = collSpinner.getSelectedItem().toString();
@@ -104,7 +106,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
-        });
+        });*/
 
 // Button Clicks------------------------------------------------------------------------------------
         CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
@@ -119,8 +121,9 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         SelectCollectionBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedCollection = collSpinner.getSelectedItem().toString();
-                if (selectedCollection.equals(null) || selectedCollection.equals(""))
+                String selectedCollection = collSpinner.getSelectedItem().toString();
+                sendSelectedCollection = selectedCollection;
+              /*  if (selectedCollection.equals(null) || selectedCollection.equals(""))
                 {
                     Toast.makeText(Home_Page.this, "Please select a collection!", Toast.LENGTH_SHORT).show();
                 }
@@ -128,8 +131,9 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 {
                     Toast.makeText(Home_Page.this, "Test 1", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-                }
-
+                }*/
+                Toast.makeText(Home_Page.this, "The collection is:" + selectedCollection, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
             }
         });
     }
