@@ -32,8 +32,6 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference collRef = database.getReference("Collection");
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,13 +41,15 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         CreateCollectionBtn.setOnClickListener(view -> {
             startActivity(new Intent(Home_Page.this,Create_Collection.class));
         });
+
         SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
         SelectCollectionBTN.setOnClickListener(view ->{
             startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-    });
+        });
 // Adding to List View------------------------------------------------------------------------------
         List<String> collList = new ArrayList<>();
         ListView lstvCollections = findViewById(R.id.lstvCollections);
+        Integer userid = MainActivity.UserID;
         collRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
