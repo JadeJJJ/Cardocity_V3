@@ -97,7 +97,7 @@ public class InputValidation {
 
     // validates the password
     public boolean ValidatePassword(String sPass, Context context) {
-        if (sPass.length() <= 5) //(sPass.length() == 6)
+        if (sPass.length() <= 5)
         {
             msg("Password Must be 6 Characters!!", context);
             return false;

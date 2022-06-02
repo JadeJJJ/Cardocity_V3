@@ -47,7 +47,7 @@ public class DatabaseCPrt2 {
     private static boolean flag = false;
 
     //---------------------------------GetLogin-----------------------------//
-    public static boolean GetLogin(String email, String password) {
+  /*  public static boolean GetLogin(String email, String password) {
         userRef = FirebaseAuth.getInstance();
         userRef.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -76,7 +76,7 @@ public class DatabaseCPrt2 {
             }
         });
         return flag;
-    }
+    } */
 
     //---------------------------------GetItem-----------------------------//
     public List<Item> GetItem(){
