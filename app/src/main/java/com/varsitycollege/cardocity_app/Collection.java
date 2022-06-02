@@ -1,7 +1,7 @@
 package com.varsitycollege.cardocity_app;
 
 public class Collection {
-    private String collectionID;
+    private Integer collectionID;
     private String collectionName;
     private Integer goalItems;
     private String userID;
@@ -9,18 +9,18 @@ public class Collection {
     public Collection() {
     }
 
-    public Collection(String collectionID, String collectionName, Integer goalItems, String userID) {
+    public Collection(Integer collectionID, String collectionName, Integer goalItems, String userID) {
         this.collectionID = collectionID;
         this.collectionName = collectionName;
         this.goalItems = goalItems;
         this.userID = userID;
     }
 
-    public String getCollectionID() {
+    public Integer getCollectionID() {
         return collectionID;
     }
 
-    public void setCollectionID(String collectionID) {
+    public void setCollectionID(Integer collectionID) {
         this.collectionID = collectionID;
     }
 

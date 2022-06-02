@@ -39,18 +39,18 @@ public class Create_Collection extends AppCompatActivity {
 
         createCollectionBtn.setOnClickListener(view -> {
 
-            String ID = collectionID.getText().toString();
+            Integer ID = GenID();
             String Name = collectionName.getText().toString();
             Integer Goal = 0;
             boolean bFlag = true;
             DatabaseCPrt2 db = new DatabaseCPrt2();
             InputValidation iv = new InputValidation();
-
+            /*
             if (!iv.NotNullorEmpty(ID))
             {
                 bFlag = false;
                 collectionID.setError("Please enter a Collection ID!!");
-            }
+            } */
 
             if (!iv.NotNullorEmpty(Name))
             {
@@ -114,9 +114,9 @@ public class Create_Collection extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);//DylanA
     }
-    private Integer[] GenID()
+    private Integer GenID()
     {
-        final Integer[] inID = {0};
+        final Integer[] inID = {1};
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference itemRef = database.getReference("Collection");
         List<String> itemList = new ArrayList<>();
@@ -140,7 +140,7 @@ public class Create_Collection extends AppCompatActivity {
         });
 
 
-        return inID;
+        return inID[0];
     }
 
 

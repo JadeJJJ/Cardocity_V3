@@ -57,7 +57,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     com.varsitycollege.cardocity_app.Collection coll = pulledOrder.getValue(com.varsitycollege.cardocity_app.Collection.class);
                     if (Objects.equals(coll.getUserID(), userid))
-                        collListID.add(coll.getCollectionID());
+                        collListID.add(coll.getCollectionID().toString());
                         collListName.add(coll.getCollectionName());
 
                 }
