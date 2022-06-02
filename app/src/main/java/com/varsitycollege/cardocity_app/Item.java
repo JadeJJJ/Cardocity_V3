@@ -10,15 +10,15 @@ public class Item {
     private Integer numberOfCards;
     //private Image cardImage;
     private String userID;
-    private Bitmap cardImage;
+    private String cardImageLink;
     private String collectionName;
 
-    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, Bitmap cardImage, String collectionName, String userID) {
+    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID) {
         this.serialNumber = serialNumber;
         this.cardName = cardName;
         this.cardType = cardType;
         this.numberOfCards = numberOfCards;
-        this.cardImage = cardImage;
+        this.cardImageLink = cardImageLink;
         this.collectionName = collectionName;
         this.userID = userID;
     }
@@ -58,12 +58,12 @@ public class Item {
         this.numberOfCards = numberOfCards;
     }
 
-    public Bitmap getCardImage() {
-        return cardImage;
+    public String getCardImageLink() {
+        return cardImageLink;
     }
 
-    public void setCardImage(Bitmap cardImage) {
-        this.cardImage = cardImage;
+    public void setCardImage(String cardImageLink) {
+        this.cardImageLink = cardImageLink;
     }
 
     public String getUserID() {

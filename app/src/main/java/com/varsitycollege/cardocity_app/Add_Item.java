@@ -62,9 +62,10 @@ private String userID; */
            String cardName = etCardName.getText().toString();
            String cardType = etCardType.getText().toString();
            Bitmap newImage = ((BitmapDrawable) camImage.getDrawable()).getBitmap();
+           String imageLink = cardName +".jpg";
            String userID = MainActivity.UserID;
            String collection = Home_Page.sendSelectedCollection;
-          Integer numberOfCards = 0;
+           Integer numberOfCards = 0;
            Bitmap cardImage = null; // change this later
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
@@ -111,9 +112,12 @@ private String userID; */
            {
                 //Item it = new Item(serialNumber, cardName, cardType, numberOfCards, cardImage, userID);
                 //addItem();
-                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, newImage, collection, userID);
-                db.SetItem(myItem);
+                Toast.makeText(Add_Item.this, collection, Toast.LENGTH_SHORT).show();
+                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, imageLink, collection, userID);
+                db.SetItem(myItem, newImage);
+                Toast.makeText(Add_Item.this, "Item Added", Toast.LENGTH_SHORT).show();
                 iv.msg("Item Added!", Add_Item.this);
+                startActivity(new Intent(Add_Item.this, Cards_In_Collection.class));
 
            }
            else

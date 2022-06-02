@@ -1,10 +1,13 @@
 package com.varsitycollege.cardocity_app;
 
+import android.graphics.Bitmap;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,7 +16,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +45,14 @@ public class DatabaseCPrt2 {
 
     //Collection Table
     private DatabaseReference collRef = database.getReference("Collection");
+
+    //Storage
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    // Get a non-default Storage bucket
+    FirebaseStorage imageStorage = FirebaseStorage.getInstance("gs://imageStorage");
+    // Create a storage reference from our app
+    StorageReference storeRef = storage.getReference();
+    StorageReference imgRef = storeRef.child("images");
 
     //Lists for storing the data
     private List<Item> itemList = new ArrayList<Item>();
@@ -99,7 +114,30 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------SetItem-----------------------------//
-    public void SetItem(Item newItem) {itemRef.push().setValue(newItem);
+    public void SetItem(Item newItem, Bitmap image) {
+        StorageReference newRef = storeRef.child(newItem.getCardImageLink());
+        StorageReference newImgRef = storeRef.child("images/"+newItem.getCardImageLink());
+        newRef.getName().equals(newImgRef.getName());
+        newRef.getPath().equals(newImgRef.getPath());
+
+        ByteArrayOutputStream outStr = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.JPEG, 100, outStr);
+        byte[] myData = outStr.toByteArray();
+
+        UploadTask upTask = newRef.putBytes(myData);
+        upTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //If failed
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                //Was successful
+            }
+        });
+
+        itemRef.push().setValue(newItem);
     }
 
     //---------------------------------GetDeck-----------------------------//
