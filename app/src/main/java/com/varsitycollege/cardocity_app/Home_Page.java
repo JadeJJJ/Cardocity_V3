@@ -35,6 +35,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
     private ActionBarDrawerToggle mToggle; //DylanA
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference collRef = database.getReference("Collection");
+    private NavigationView navSideBar; //DylanA
 
     //public static String selectedCollection;
     public static String sendSelectedCollection;
@@ -93,6 +94,24 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
         mToggle.syncState();//DylanA
+
+        navSideBar = findViewById(R.id.nav_side_menu) ;
+        navSideBar.setOnClickListener(item -> {
+            switch(item.getId()){
+                case R.id.nav_myCollections:
+                    startActivity(new Intent(Home_Page.this, Home_Page.class));
+                    break;
+                case R.id.nav_decks:
+                    startActivity(new Intent(Home_Page.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                    break;
+                case R.id.nav_stats:
+                    startActivity(new Intent(Home_Page.this, GoalsAndStats.class));
+                    break;
+                case R.id.nav_signOut:
+                    startActivity(new Intent(Home_Page.this, MainActivity.class));//Sends User to Login Screen
+                    break;
+            }
+        });
 // -------------------------------------------------------------------------------------------------
 
     //Spinner listener
