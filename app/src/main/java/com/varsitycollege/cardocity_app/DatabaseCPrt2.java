@@ -148,7 +148,7 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------SetCollection-----------------------------//
-    public void SetDeck(Collection newColl) {
+    public void SetCollection(Collection newColl) {
         collRef.push().setValue(newColl);
     }
 

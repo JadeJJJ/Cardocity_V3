@@ -54,11 +54,10 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
-                    Collection order = pulledOrder.getValue(Collection.class);
-                    collList.add(order.toString());
+                    com.varsitycollege.cardocity_app.Collection coll = pulledOrder.getValue(com.varsitycollege.cardocity_app.Collection.class);
+                    if (coll.getUserID() == userid)
+                        collList.add(coll.toString());
                 }
-
-                // create the adapter to display the items
 
                 ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Home_Page.this, android.R.layout.simple_list_item_1, collList);
                 lstvCollections.setAdapter(collAdapter);

@@ -5,7 +5,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -67,8 +66,8 @@ public class Create_Collection extends AppCompatActivity {
 
             if (bFlag)
             {
-                Collection coll = new Collection(ID, Name, Goal);
-                db.SetDeck(coll);
+                Collection coll = new Collection(ID, Name, Goal, MainActivity.UserID);
+                db.SetCollection(coll);
                 iv.msg("Collection Created!!", Create_Collection.this);
                 startActivity(new Intent(Create_Collection.this,Cards_In_Collection.class));
             }
