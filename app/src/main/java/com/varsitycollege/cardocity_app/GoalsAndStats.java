@@ -11,6 +11,7 @@ public class GoalsAndStats extends AppCompatActivity {
     private Button UpdateChartBTN;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
+    private com.google.android.material.navigation.NavigationView nvTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,6 @@ public class GoalsAndStats extends AppCompatActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA EVERY PAGE NEEDS A DRAWERLAYOUT ID
         mDrawerLayout.addDrawerListener(mToggle);//DylanA
-
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
         mToggle.syncState();//DylanA
 // -------------------------------------------------------------------------------------------------

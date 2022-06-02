@@ -151,10 +151,18 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.nav_decks:
-                startActivity(new Intent(Home_Page.this, Create_Collection.class));
+            case R.id.nav_myCollections:
+                startActivity(new Intent(Home_Page.this, Home_Page.class));
                 break;
-
+            case R.id.nav_decks:
+                startActivity(new Intent(Home_Page.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                break;
+            case R.id.nav_stats:
+                startActivity(new Intent(Home_Page.this, GoalsAndStats.class));
+                break;
+            case R.id.nav_signOut:
+                startActivity(new Intent(Home_Page.this, MainActivity.class));//Sends User to Login Screen
+                break;
         }
         return true;
     }
