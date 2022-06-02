@@ -15,27 +15,54 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
 
-    <ListView
-        android:id="@+id/lstvCards"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:padding="2dp" />
+        android:layout_height="393dp"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/lstvCardsName"
+            android:layout_width="100dp"
+            android:layout_height="380dp"
+            android:padding="2dp" />
+
+        <ListView
+            android:id="@+id/lstvCardsType"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:padding="2dp" />
+
+        <ListView
+            android:id="@+id/lstvCardsNumCards"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:padding="2dp" />
+
+        <ListView
+            android:id="@+id/lstvCardsimage"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:padding="2dp" />
+
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
+        android:paddingTop="10dp"
         android:paddingRight="20dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp">
+        android:paddingBottom="10dp">
 
         <Button
             android:id="@+id/addItem"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:text="Add Item"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="Add Item" />
 
         <Space
             android:layout_width="wrap_content"

@@ -40,20 +40,25 @@ public class Cards_In_Collection extends AppCompatActivity {
 
         // TODO Add items from the database to the list in a collection
 // Adding to List View------------------------------------------------------------------------------
-        List<String> itemList = new ArrayList<>();
-        ListView lstvItems = findViewById(R.id.lstvCards);
+        List<String> itemListName = new ArrayList<>();
+        ListView lstvCardsName = findViewById(R.id.lstvCardsName);
         String userid = MainActivity.UserID;
+        String sLine = "";
         itemRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     Item item = pulledOrder.getValue(Item.class);
-                   // if (Objects.equals(item.getUserID(), userid))
-                        itemList.add(item.toString());
+                    if (Objects.equals(item.getUserID(), userid))
+                    {
+                        itemListName.add(item.getCardName());
+                    }
                 }
 
-                ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemList);
-                lstvItems.setAdapter(collAdapter);
+                ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListName);
+                lstvCardsName.setAdapter(itemNameAdapter);
+                ArrayAdapter<String> collAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListName);
+                lstvCardsName.setAdapter(collAdapter);
             }
 
             @Override
