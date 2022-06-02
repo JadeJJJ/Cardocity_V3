@@ -23,14 +23,14 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_10_collection_screen);
-CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
+// Button Clicks------------------------------------------------------------------------------------
+        CreateCollectionBtn = findViewById(R.id.HP_Create_Collection);
         CreateCollectionBtn.setOnClickListener(view -> {
             startActivity(new Intent(Home_Page.this,Create_Collection.class));
         });
         SelectCollectionBTN = findViewById(R.id.HP_Select_Collection);
         SelectCollectionBTN.setOnClickListener(view ->{
             startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
-
     });
 
 // NAV DRAWER---------------------------------------------------------------------------------------
