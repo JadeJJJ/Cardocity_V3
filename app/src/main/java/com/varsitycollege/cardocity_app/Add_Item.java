@@ -78,6 +78,31 @@ private String userID; */
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
 
+           fabCalendar = findViewById(R.id.fabCal);
+           fabCalendar.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   Calendar datePickerCalendar = Calendar.getInstance();
+                   int year = datePickerCalendar.get((Calendar.YEAR));
+                   int month = datePickerCalendar.get((Calendar.MONTH));
+                   int day = datePickerCalendar.get((Calendar.DAY_OF_MONTH));
+
+                   DatePickerDialog orderDatePicker = new DatePickerDialog(
+                           Add_Item.this, android.R.style.Theme_Light_Panel,
+                           new DatePickerDialog.OnDateSetListener() {
+                               @Override
+                               public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                                   try {
+                                       aquireDate = new SimpleDateFormat("dd-MM-yyyy").parse(dayOfMonth + "-" + month + "-" + year);
+                                   } catch (ParseException e) {
+                                       e.printStackTrace();
+                                   }
+                               }
+                           }, year, month, day);
+                   orderDatePicker.show();
+               }
+           });
+
 
            // TODO Take a picture functionality
 
@@ -121,32 +146,6 @@ private String userID; */
                 iv.msg("Please Take an Image!!", Add_Item.this);
                 bFlag = false;
             }
-
-            fabCalendar = findViewById(R.id.fabCal);
-            fabCalendar.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                   Calendar datePickerCalendar = Calendar.getInstance();
-                   int year = datePickerCalendar.get((Calendar.YEAR));
-                   int month = datePickerCalendar.get((Calendar.MONTH));
-                   int day = datePickerCalendar.get((Calendar.DAY_OF_MONTH));
-
-                   DatePickerDialog orderDatePicker = new DatePickerDialog(
-                           Add_Item.this, android.R.style.Theme_Light_Panel,
-                           new DatePickerDialog.OnDateSetListener() {
-                               @Override
-                               public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                                   try {
-                                       aquireDate = new SimpleDateFormat("dd-MM-yyyy").parse(dayOfMonth + "-" + month + "-" + year);
-                                   } catch (ParseException e) {
-                                       e.printStackTrace();
-                                   }
-                               }
-                           }, year, month, day);
-                   orderDatePicker.show();
-               }
-           });
-
 
            if (bFlag)
            {
