@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LoginEmail = findViewById(R.id.logEmail);
+        LoginEmail.requestFocus();//to start typing immediately
         LoginPassword = findViewById(R.id.logPassword);
         RegisterTEXT = findViewById(R.id.log_Reg);
         Login_BTN = findViewById(R.id.Log_Login);
-
         mAuth = FirebaseAuth.getInstance();
 
         Login_BTN.setOnClickListener(view -> {
