@@ -42,6 +42,7 @@ private String userID; */
     private Button storePhoto;
     private static final int requestImageCapture = 0;
     private static final int requestImageCapPer = 100;
+    private boolean bPic = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +67,6 @@ private String userID; */
            String userID = MainActivity.UserID;
            String collection = Home_Page.sendSelectedCollection;
            Integer numberOfCards = 0;
-           Bitmap cardImage = null; // change this later
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
 
@@ -107,6 +107,12 @@ private String userID; */
                    etNumberOfCards.setError("Number of cards invalid!!");
                }
            }
+            if (!bPic)
+            {
+                iv.msg("Please Take an Image!!", Add_Item.this);
+                bFlag = false;
+            }
+
 
            if (bFlag)
            {
@@ -164,6 +170,7 @@ private String userID; */
         {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             camImage.setImageBitmap(bitmap);
+            bPic = true;
         }
     }
 
