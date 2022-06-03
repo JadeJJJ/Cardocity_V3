@@ -77,7 +77,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
                 Collection coll = new Collection(ID, Name, Goal, MainActivity.UserID);
                 db.SetCollection(coll);
                 iv.msg("Collection Created!!", Create_Collection.this);
-                startActivity(new Intent(Create_Collection.this,Cards_In_Collection.class));
+                startActivity(new Intent(Create_Collection.this, Home_Page.class));
             }
             else
                 iv.msg("Failed to Create Collection!!", Create_Collection.this);
