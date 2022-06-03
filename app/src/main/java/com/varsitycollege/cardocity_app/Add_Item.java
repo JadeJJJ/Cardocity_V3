@@ -63,6 +63,32 @@ private String userID; */
         etNumberOfCards = findViewById(R.id.numberOfCards);
         takePhotoBtn = findViewById(R.id.take_photo);
         addItemBtn = findViewById(R.id.addItemButton);
+
+        fabCalendar = findViewById(R.id.fabCal);
+        fabCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar datePickerCalendar = Calendar.getInstance();
+                int year = datePickerCalendar.get((Calendar.YEAR));
+                int month = datePickerCalendar.get((Calendar.MONTH));
+                int day = datePickerCalendar.get((Calendar.DAY_OF_MONTH));
+
+                DatePickerDialog orderDatePicker = new DatePickerDialog(
+                        Add_Item.this, android.R.style.Theme_Light_Panel,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                                try {
+                                    aquireDate = new SimpleDateFormat("dd-MM-yyyy").parse(dayOfMonth + "-" + month + "-" + year);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, year, month, day);
+                orderDatePicker.show();
+            }
+        });
+
      //------------------------------------------------------------------------------------------------
         //Method to add item to collection
        addItemBtn.setOnClickListener(view -> {
@@ -77,32 +103,6 @@ private String userID; */
            Integer numberOfCards = 0;
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
-
-           fabCalendar = findViewById(R.id.fabCal);
-           fabCalendar.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                   Calendar datePickerCalendar = Calendar.getInstance();
-                   int year = datePickerCalendar.get((Calendar.YEAR));
-                   int month = datePickerCalendar.get((Calendar.MONTH));
-                   int day = datePickerCalendar.get((Calendar.DAY_OF_MONTH));
-
-                   DatePickerDialog orderDatePicker = new DatePickerDialog(
-                           Add_Item.this, android.R.style.Theme_Light_Panel,
-                           new DatePickerDialog.OnDateSetListener() {
-                               @Override
-                               public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                                   try {
-                                       aquireDate = new SimpleDateFormat("dd-MM-yyyy").parse(dayOfMonth + "-" + month + "-" + year);
-                                   } catch (ParseException e) {
-                                       e.printStackTrace();
-                                   }
-                               }
-                           }, year, month, day);
-                   orderDatePicker.show();
-               }
-           });
-
 
            // TODO Take a picture functionality
 
