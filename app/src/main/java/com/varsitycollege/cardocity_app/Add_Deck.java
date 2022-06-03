@@ -44,7 +44,7 @@ public class Add_Deck extends AppCompatActivity {
                     }
                 }
 
-                ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Deck_Screen.this, android.R.layout.simple_spinner_item, collListName);
+                ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Add_Deck.this, android.R.layout.simple_spinner_item, collListName);
                 spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 collSpinner.setAdapter(spnAdapter);
             }
