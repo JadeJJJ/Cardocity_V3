@@ -31,7 +31,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
     private DrawerLayout mDrawerLayout; //navbar
     private ActionBarDrawerToggle mToggle; //navbar
     private NavigationView navView;//navbar
-    private Integer id = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +41,13 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 
         createCollectionBtn.setOnClickListener(view -> {
 
-            GenID();
-            Integer ID = id;
+            Integer ID = GenID();
             String Name = collectionName.getText().toString();
             Integer Goal = 0;
             boolean bFlag = true;
             DatabaseCPrt2 db = new DatabaseCPrt2();
             InputValidation iv = new InputValidation();
+            iv.msg(ID.toString(), Create_Collection.this);
 
             if (!iv.NotNullorEmpty(Name))
             {
@@ -101,8 +100,9 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 // -------------------------------------------------------------------------------------------------
     }
 
-    private void GenID()
+    private Integer GenID()
     {
+        /*
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference itemRef = database.getReference("Collection");
         List<String> itemList = new ArrayList<>();
@@ -121,9 +121,15 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Create_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
-        });
-
-
+        }); */
+        Integer[] id =new Integer[10];
+        String newId = "";
+        for (int i = 0; i < 10; i++)
+        {
+            id[i] = (int)Math.floor(Math.random()*(9-0+1)+0);
+            newId += id[i];
+        }
+        return Integer.parseInt(newId);
     }
 
 
