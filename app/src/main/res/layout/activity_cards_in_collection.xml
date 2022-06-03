@@ -121,18 +121,6 @@
                 android:layout_weight="1"
                 android:text="Add Item" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/editCollectionButton"
-                android:layout_width="95dp"
-                android:layout_height="70dp"
-                android:layout_weight="1"
-                android:text="Edit Collection" />
-
 
         </LinearLayout>
     </LinearLayout>
