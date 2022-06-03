@@ -102,7 +102,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 
     private Integer GenID()
     {
-        final Integer[] inID = {1};
+        Integer[] inID = {0};
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference itemRef = database.getReference("Collection");
         List<String> itemList = new ArrayList<>();
