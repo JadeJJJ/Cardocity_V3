@@ -31,6 +31,52 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
     private DrawerLayout mDrawerLayout; //navbar
     private ActionBarDrawerToggle mToggle; //navbar
     private NavigationView navView;//navbar
+
+    private Integer GenID()
+    {
+        /*
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference itemRef = database.getReference("Collection");
+        List<String> itemList = new ArrayList<>();
+
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot){
+                for (DataSnapshot pulledOrder : snapshot.getChildren()){
+                    Collection coll = pulledOrder.getValue(Collection.class);
+                    itemList.add(coll.toString());
+                }
+                id = itemList.size();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Create_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
+            }/
+        }); */
+        boolean bFlag = true;
+        Integer id = 0;
+        Integer i1= (int)Math.floor(Math.random()*(9-1+1)+1);
+        Integer i2= (int)Math.floor(Math.random()*(9-0+1)+0);
+        Integer i3= (int)Math.floor(Math.random()*(9-0+1)+0);
+        Integer i4= (int)Math.floor(Math.random()*(9-0+1)+0);
+        Integer i5= (int)Math.floor(Math.random()*(9-0+1)+0);
+        Integer i6= (int)Math.floor(Math.random()*(9-0+1)+0);
+        String newId = i1.toString()+i2.toString()+i3.toString()+i4.toString()+i5.toString()+i6.toString();
+            try {
+                id = Integer.parseInt(newId);
+                bFlag = false;
+            } catch (Exception ex)
+            {
+                Toast.makeText(Create_Collection.this, ex.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+
+
+        return id;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,42 +146,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 // -------------------------------------------------------------------------------------------------
     }
 
-    private Integer GenID()
-    {
-        /*
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference itemRef = database.getReference("Collection");
-        List<String> itemList = new ArrayList<>();
 
-        itemRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot){
-                for (DataSnapshot pulledOrder : snapshot.getChildren()){
-                    Collection coll = pulledOrder.getValue(Collection.class);
-                    itemList.add(coll.toString());
-                }
-                id = itemList.size();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Create_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
-            }/
-        }); */
-        Integer[] arr = new Integer[10];
-        String newId = "";
-        for (int i = 0; i < 10; i++)
-        {
-            if (i == 0)
-                arr[i] = (int)Math.floor(Math.random()*(9-1+1)+1);
-            else
-                arr[i] = (int)Math.floor(Math.random()*(9-0+1)+0);
-
-            newId += arr[i].toString();
-        }
-        Integer id = Integer.parseInt(newId);
-        return id;
-    }
 
 
     @Override
