@@ -50,7 +50,7 @@ private String userID; */
     private static final int requestImageCapture = 0;
     private static final int requestImageCapPer = 100;
     private boolean bPic = false;
-    private  Date aquireDate = null;
+    private Date aquireDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
