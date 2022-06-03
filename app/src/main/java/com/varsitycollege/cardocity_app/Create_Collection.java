@@ -48,12 +48,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             boolean bFlag = true;
             DatabaseCPrt2 db = new DatabaseCPrt2();
             InputValidation iv = new InputValidation();
-            /*
-            if (!iv.NotNullorEmpty(ID))
-            {
-                bFlag = false;
-                collectionID.setError("Please enter a Collection ID!!");
-            } */
 
             if (!iv.NotNullorEmpty(Name))
             {
@@ -105,7 +99,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
         navView.setNavigationItemSelectedListener(this);
 // -------------------------------------------------------------------------------------------------
     }
-
 
     private Integer GenID()
     {

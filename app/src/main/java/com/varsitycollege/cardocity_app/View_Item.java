@@ -3,9 +3,11 @@ package com.varsitycollege.cardocity_app;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -36,6 +38,8 @@ public class View_Item extends AppCompatActivity {
     private EditText edtNumCards;
     private EditText edtCardType;
     private ImageView imgView;
+    private Button btnReturn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +50,7 @@ public class View_Item extends AppCompatActivity {
         edtNumCards = findViewById(R.id.edtNoCardsView);
         edtCardType = findViewById(R.id.edtCardTypeView);
         imgView = findViewById(R.id.ivImageView);
-        List<String> serialNum = new ArrayList<>();
-        List<String> cardName = new ArrayList<>();
-        List<String> numOfCards = new ArrayList<>();
-
+        btnReturn = findViewById(R.id.btnReturn);
 
         itemRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,22 +60,11 @@ public class View_Item extends AppCompatActivity {
 
                     if (Objects.equals(item.getUserID(), userid) && Objects.equals(item.getCardName(), selectedItem))
                     {
-                        /*
-                        serialNum.add(item.getSerialNumber());
-                        cardName.add(item.getCardName());
-                        numOfCards.add(item.getNumberOfCards().toString());
-
-                        for (int i =0 ; i < serialNum.size(); i++)
-                        {
-                            edtSerialNumber.setText(serialNum.get(i));
-                            edtCardName.setText(cardName.get(i));
-                            edtNumCards.setText(numOfCards.get(i));
-                        } */
 
                         edtSerialNumber.setText(item.getSerialNumber());
                         edtCardName.setText(item.getCardName());
                         edtCardType.setText(item.getCardType());
-                        edtNumCards.setText(item.getNumberOfCards());
+                        edtNumCards.setText(item.getNumberOfCards().toString());
 
 
                         StorageReference pathRef = storeRef.child("images/" + item.getCardImageLink());
@@ -86,20 +76,18 @@ public class View_Item extends AppCompatActivity {
                                 imgView.setImageBitmap(myMap);
                             }
                         });
-
-                    }
-                    else{
-                        Toast.makeText(View_Item.this, "Failed to load", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(View_Item.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnReturn.setOnClickListener(view ->{
+            startActivity(new Intent(View_Item.this,Home_Page.class));
         });
     }
 }
