@@ -110,8 +110,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     Collection coll = pulledOrder.getValue(Collection.class);
-                    if (Objects.equals(coll.getUserID(), MainActivity.UserID))
-                        itemList.add(coll.toString());
+                    itemList.add(coll.toString());
                 }
             }
 
@@ -121,8 +120,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             }
         });
 
-
-        return itemList.size();
+        return itemList.size() + 1;
     }
 
 
