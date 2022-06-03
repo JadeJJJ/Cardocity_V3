@@ -31,7 +31,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
     private DrawerLayout mDrawerLayout; //navbar
     private ActionBarDrawerToggle mToggle; //navbar
     private NavigationView navView;//navbar
-    private Integer id;
+    private Integer id = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
