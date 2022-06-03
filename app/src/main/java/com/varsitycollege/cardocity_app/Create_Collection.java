@@ -126,7 +126,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
         String newId = "";
         for (int i = 0; i < 10; i++)
         {
-            if (i == 1)
+            if (i == 0)
                 arr[i] = (int)Math.floor(Math.random()*(9-1+1)+1);
             else
                 arr[i] = (int)Math.floor(Math.random()*(9-0+1)+0);
