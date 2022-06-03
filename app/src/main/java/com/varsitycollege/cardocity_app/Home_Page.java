@@ -134,7 +134,6 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 }
                 else
                 {
-                    Toast.makeText(Home_Page.this, "Test 1", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
                 }
             }
