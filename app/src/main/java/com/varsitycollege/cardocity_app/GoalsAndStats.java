@@ -27,14 +27,14 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA EVERY PAGE NEEDS A DRAWERLAYOUT ID
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//EVERY PAGE NEEDS A DRAWERLAYOUT ID
         mDrawerLayout.addDrawerListener(mToggle);//DylanA
 
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
-        mToggle.syncState();//DylanA
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
+        mToggle.syncState();
 
         navView = findViewById(R.id.nav_side_menu) ;
         navView.setNavigationItemSelectedListener(this);
@@ -42,13 +42,13 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if(mToggle.onOptionsItemSelected(item)){//DylanA
+        if(mToggle.onOptionsItemSelected(item)){
             return true;//DylanA
         }
 
-        return super.onOptionsItemSelected(item);//DylanA
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

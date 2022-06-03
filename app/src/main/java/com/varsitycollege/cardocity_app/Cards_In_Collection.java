@@ -1,13 +1,16 @@
 package com.varsitycollege.cardocity_app;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Cards_In_Collection extends AppCompatActivity {
+public class Cards_In_Collection extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Button addItemBtn;
     private Button editCollectionBtn;
     private Button btnSelect;
@@ -38,8 +42,9 @@ public class Cards_In_Collection extends AppCompatActivity {
     private DatabaseReference itemRef = database.getReference("Item");
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     public static String selectedItem;
-
-
+    private DrawerLayout mDrawerLayout; //navbar
+    private ActionBarDrawerToggle mToggle; //navbar
+    private NavigationView navView;//navbar
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,5 +123,47 @@ public class Cards_In_Collection extends AppCompatActivity {
             // TODO Add selected card to entered deck
         });
 
+// NAV DRAWER---------------------------------------------------------------------------------------
+        // enable ActionBar app icon to behave as action to toggle nav drawer
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA EVERY PAGE NEEDS A DRAWERLAYOUT ID
+        mDrawerLayout.addDrawerListener(mToggle);//DylanA
+
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
+        mToggle.syncState();//DylanA
+
+        navView = findViewById(R.id.nav_side_menu) ;
+        navView.setNavigationItemSelectedListener(this);
+// -------------------------------------------------------------------------------------------------
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
+
+        if(mToggle.onOptionsItemSelected(item)){//DylanA
+            return true;//DylanA
+        }
+
+        return super.onOptionsItemSelected(item);//DylanA
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.nav_myCollections:
+                startActivity(new Intent(Cards_In_Collection.this, Home_Page.class));
+                break;
+            case R.id.nav_decks:
+                startActivity(new Intent(Cards_In_Collection.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                break;
+            case R.id.nav_stats:
+                startActivity(new Intent(Cards_In_Collection.this, GoalsAndStats.class));
+                break;
+            case R.id.nav_signOut:
+                startActivity(new Intent(Cards_In_Collection.this, MainActivity.class));//Sends User to Login Screen
+                break;
+        }
+        return true;
     }
 }
