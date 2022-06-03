@@ -100,7 +100,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 
     private Integer GenID()
     {
-        Integer[] inID = {0};
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference itemRef = database.getReference("Collection");
         List<String> itemList = new ArrayList<>();
@@ -110,9 +109,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     Item item = pulledOrder.getValue(Item.class);
-                    // if (Objects.equals(item.getUserID(), userid))
                     itemList.add(item.toString());
-                    inID[0]++;
                 }
 
             }
@@ -123,8 +120,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             }
         });
 
-
-        return inID[0];
+        return itemList.size();
     }
 
 
