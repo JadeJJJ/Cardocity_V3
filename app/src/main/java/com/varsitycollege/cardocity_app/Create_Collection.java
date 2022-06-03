@@ -122,14 +122,15 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
                 Toast.makeText(Create_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
         }); */
-        Integer[] id =new Integer[10];
+        Integer[] arr = new Integer[10];
         String newId = "";
         for (int i = 0; i < 10; i++)
         {
-            id[i] = (int)Math.floor(Math.random()*(9-0+1)+0);
-            newId += id[i];
+            arr[i] = (int)Math.floor(Math.random()*(9-0+1)+0);
+            newId += arr[i].toString();
         }
-        return Integer.parseInt(newId);
+        Integer id = Integer.parseInt(newId);
+        return id;
     }
 
 
