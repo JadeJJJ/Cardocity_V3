@@ -29,23 +29,26 @@ public class View_Item extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference itemRef = database.getReference("Item");
 
-    FirebaseStorage storage = FirebaseStorage.getInstance();
-    StorageReference storeRef = storage.getReference();
-    EditText edtSerialNumber;
-    EditText edtCardName;
-    EditText edtNumCards;
-    ImageView imgView;
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+    private StorageReference storeRef = storage.getReference();
+    private EditText edtSerialNumber;
+    private EditText edtCardName;
+    private EditText edtNumCards;
+    private EditText edtCardType;
+    private ImageView imgView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_item);
+
         edtSerialNumber = findViewById(R.id.edtSerialView);
         edtCardName = findViewById(R.id.edtCardNameView);
         edtNumCards = findViewById(R.id.edtNoCardsView);
+        edtCardType = findViewById(R.id.edtCardTypeView);
         imgView = findViewById(R.id.ivImageView);
         List<String> serialNum = new ArrayList<>();
         List<String> cardName = new ArrayList<>();
         List<String> numOfCards = new ArrayList<>();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_item);
 
 
         itemRef.addValueEventListener(new ValueEventListener() {
@@ -54,12 +57,24 @@ public class View_Item extends AppCompatActivity {
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     Item item = pulledOrder.getValue(Item.class);
 
-                    if (Objects.equals(item.getUserID(), userid)&& Objects.equals(item.getCardName(), selectedItem))
+                    if (Objects.equals(item.getUserID(), userid) && Objects.equals(item.getCardName(), selectedItem))
                     {
+                        /*
                         serialNum.add(item.getSerialNumber());
                         cardName.add(item.getCardName());
                         numOfCards.add(item.getNumberOfCards().toString());
 
+                        for (int i =0 ; i < serialNum.size(); i++)
+                        {
+                            edtSerialNumber.setText(serialNum.get(i));
+                            edtCardName.setText(cardName.get(i));
+                            edtNumCards.setText(numOfCards.get(i));
+                        } */
+
+                        edtSerialNumber.setText(item.getSerialNumber());
+                        edtCardName.setText(item.getCardName());
+                        edtCardType.setText(item.getCardType());
+                        edtNumCards.setText(item.getNumberOfCards());
 
 
                         StorageReference pathRef = storeRef.child("images/" + item.getCardImageLink());
@@ -71,13 +86,6 @@ public class View_Item extends AppCompatActivity {
                                 imgView.setImageBitmap(myMap);
                             }
                         });
-                        for (int i =0 ; i < serialNum.size(); i++)
-                        {
-                            edtSerialNumber.setText(serialNum.get(i));
-                            edtCardName.setText(cardName.get(i));
-                            edtNumCards.setText(numOfCards.get(i));
-                        }
-
 
                     }
                     else{

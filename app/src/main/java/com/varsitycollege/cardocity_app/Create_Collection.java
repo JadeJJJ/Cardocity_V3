@@ -88,12 +88,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             else
                 iv.msg("Failed to Create Collection!!", Create_Collection.this);
 
-
         });
-
-
-
-
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
