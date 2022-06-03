@@ -34,7 +34,6 @@ import java.util.Objects;
 
 public class Cards_In_Collection extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Button addItemBtn;
-    private Button editCollectionBtn;
     private Button btnSelect;
     private Button btnAddToDeck;
     private ListView lstvOrderHistory;
@@ -51,7 +50,6 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cards_in_collection);
         addItemBtn=findViewById(R.id.addItem);
-        editCollectionBtn = findViewById(R.id.editCollectionButton);
         btnSelect = findViewById(R.id.btnSelectItem);
         btnAddToDeck = findViewById(R.id.btnAddtoDeck);
 
@@ -99,11 +97,6 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Cards_In_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
-        });
-
-        editCollectionBtn.setOnClickListener(view -> {
-            startActivity(new Intent(Cards_In_Collection.this,Edit_Collection.class));
-
         });
 
         addItemBtn.setOnClickListener(view -> {
