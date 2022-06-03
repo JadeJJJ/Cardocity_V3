@@ -71,8 +71,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
                 Toast.makeText(Create_Collection.this, ex.toString(), Toast.LENGTH_SHORT).show();
             }
 
-
-
         return id;
     }
 
@@ -146,9 +144,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 // -------------------------------------------------------------------------------------------------
     }
 
-
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
 
@@ -166,7 +161,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
                 startActivity(new Intent(Create_Collection.this, Home_Page.class));
                 break;
             case R.id.nav_decks:
-                startActivity(new Intent(Create_Collection.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                startActivity(new Intent(Create_Collection.this, Home_Page.class));
                 break;
             case R.id.nav_stats:
                 startActivity(new Intent(Create_Collection.this, GoalsAndStats.class));
