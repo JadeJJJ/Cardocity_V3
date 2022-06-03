@@ -4,19 +4,19 @@
 
     <item
         android:id="@+id/nav_myCollections"
-        android:icon="@drawable/ic_baseline_arrow_back_24"
+        android:icon="@android:drawable/ic_menu_send"
         android:title="My Collections" />
     <item
         android:id="@+id/nav_decks"
-        android:icon="@drawable/ic_baseline_arrow_back_24"
+        android:icon="@android:drawable/ic_menu_send"
         android:title="Decks" />
     <item
         android:id="@+id/nav_stats"
-        android:icon="@drawable/ic_baseline_arrow_back_24"
+        android:icon="@android:drawable/ic_menu_send"
         android:title="Stats" />
     <item
         android:id="@+id/nav_signOut"
-        android:icon="@drawable/ic_baseline_arrow_back_24"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:title="Sign Out" />
 
 </menu>
