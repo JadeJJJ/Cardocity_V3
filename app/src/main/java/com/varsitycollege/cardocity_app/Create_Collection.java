@@ -24,7 +24,6 @@ import java.util.List;
 import com.google.android.material.navigation.NavigationView;
 
 public class Create_Collection extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    EditText collectionID;
     EditText collectionName;
     EditText goalItems;
     Button createCollectionBtn;
@@ -35,7 +34,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_collection);
-        collectionID = findViewById(R.id.collectionID);
         collectionName = findViewById(R.id.collectionName);
         goalItems = findViewById(R.id.goalItems);
         createCollectionBtn = findViewById(R.id.Create_Collection);
