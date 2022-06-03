@@ -91,7 +91,6 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             boolean bFlag = true;
             DatabaseCPrt2 db = new DatabaseCPrt2();
             InputValidation iv = new InputValidation();
-            iv.msg(ID.toString(), Create_Collection.this);
 
             if (!iv.NotNullorEmpty(Name))
             {
