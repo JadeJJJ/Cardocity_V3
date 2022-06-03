@@ -6,20 +6,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Add_Item extends AppCompatActivity {
 Button takePhotoBtn;
@@ -28,6 +34,7 @@ EditText etCardName;
 EditText etCardType;
 EditText etNumberOfCards;
 Button addItemBtn;
+FloatingActionButton fabCalendar;
 
 /*public Bitmap newImage;
 private String serialNum;
@@ -43,6 +50,7 @@ private String userID; */
     private static final int requestImageCapture = 0;
     private static final int requestImageCapPer = 100;
     private boolean bPic = false;
+    private  Date aquireDate = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +77,7 @@ private String userID; */
            Integer numberOfCards = 0;
            boolean bFlag = true;
            DatabaseCPrt2 db = new DatabaseCPrt2();
+
 
            // TODO Take a picture functionality
 
@@ -113,13 +122,38 @@ private String userID; */
                 bFlag = false;
             }
 
+            fabCalendar = findViewById(R.id.fabCal);
+            fabCalendar.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   Calendar datePickerCalendar = Calendar.getInstance();
+                   int year = datePickerCalendar.get((Calendar.YEAR));
+                   int month = datePickerCalendar.get((Calendar.MONTH));
+                   int day = datePickerCalendar.get((Calendar.DAY_OF_MONTH));
+
+                   DatePickerDialog orderDatePicker = new DatePickerDialog(
+                           Add_Item.this, android.R.style.Theme_Light_Panel,
+                           new DatePickerDialog.OnDateSetListener() {
+                               @Override
+                               public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                                   try {
+                                       aquireDate = new SimpleDateFormat("dd-MM-yyyy").parse(dayOfMonth + "-" + month + "-" + year);
+                                   } catch (ParseException e) {
+                                       e.printStackTrace();
+                                   }
+                               }
+                           }, year, month, day);
+                   orderDatePicker.show();
+               }
+           });
+
 
            if (bFlag)
            {
                 //Item it = new Item(serialNumber, cardName, cardType, numberOfCards, cardImage, userID);
                 //addItem();
                 Toast.makeText(Add_Item.this, collection, Toast.LENGTH_SHORT).show();
-                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, imageLink, collection, userID);
+                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, imageLink, collection, userID, aquireDate);
                 db.SetItem(myItem, newImage);
                 Toast.makeText(Add_Item.this, "Item Added", Toast.LENGTH_SHORT).show();
                 iv.msg("Item Added!", Add_Item.this);

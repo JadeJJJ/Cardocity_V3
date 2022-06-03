@@ -1,7 +1,6 @@
 package com.varsitycollege.cardocity_app;
 
-import android.graphics.Bitmap;
-import android.media.Image;
+import java.util.Date;
 
 public class Item {
     private String serialNumber;
@@ -12,8 +11,9 @@ public class Item {
     private String userID;
     private String cardImageLink;
     private String collectionName;
+    private Date aquireDate;
 
-    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID) {
+    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID, Date aquireDate) {
         this.serialNumber = serialNumber;
         this.cardName = cardName;
         this.cardType = cardType;
@@ -21,6 +21,7 @@ public class Item {
         this.cardImageLink = cardImageLink;
         this.collectionName = collectionName;
         this.userID = userID;
+        this.aquireDate = aquireDate;
     }
 
     public Item() {

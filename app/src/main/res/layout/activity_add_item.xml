@@ -112,6 +112,13 @@
             android:text="Take Photo" />
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
