@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -108,10 +109,10 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
-                    Item item = pulledOrder.getValue(Item.class);
-                    itemList.add(item.toString());
+                    Collection coll = pulledOrder.getValue(Collection.class);
+                    if (Objects.equals(coll.getUserID(), MainActivity.UserID))
+                        itemList.add(coll.toString());
                 }
-
             }
 
             @Override
@@ -119,6 +120,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
                 Toast.makeText(Create_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
         });
+
 
         return itemList.size();
     }
