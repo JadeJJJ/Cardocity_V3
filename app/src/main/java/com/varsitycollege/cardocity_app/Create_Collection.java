@@ -120,7 +120,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Create_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
-            }
+            }/
         }); */
         Integer[] arr = new Integer[10];
         String newId = "";
