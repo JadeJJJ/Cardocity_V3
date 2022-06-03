@@ -4,14 +4,16 @@ public class Deck {
     private String deckName;
     private String chooseCollection;
     private Integer totalNumCars;
+    private String userID;
 
     public Deck() {
     }
 
-    public Deck(String deckName, String chooseCollection, Integer totalNumCars) {
+    public Deck(String deckName, String chooseCollection, Integer totalNumCars, String userID) {
         this.deckName = deckName;
         this.chooseCollection = chooseCollection;
         this.totalNumCars = totalNumCars;
+        this.userID = userID;
     }
 
     public String getDeckName() {
@@ -36,6 +38,14 @@ public class Deck {
 
     public void setTotalNumCars(Integer totalNumCars) {
         this.totalNumCars = totalNumCars;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
 }

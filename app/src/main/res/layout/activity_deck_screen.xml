@@ -18,9 +18,10 @@
         android:layout_marginBottom="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
-    <GridView
+    <ListView
+        android:id="@+id/lstvDecks"
         android:layout_width="match_parent"
-        android:layout_height="400dp"/>
+        android:layout_height="463dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,11 +29,13 @@
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
+
         <Space
             android:layout_width="150dp"
             android:layout_height="wrap_content" />
+
         <Button
-            android:id="@+id/button21"
+            android:id="@+id/btnCreateDeck"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Create Deck" />
@@ -44,7 +47,7 @@
         android:orientation="horizontal">
 
         <Spinner
-            android:id="@+id/spinner6"
+            android:id="@+id/spnSelectDeck"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -56,7 +59,7 @@
             android:padding="10dp" />
 
         <Button
-            android:id="@+id/button22"
+            android:id="@+id/btnSelectDeck"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

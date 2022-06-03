@@ -37,6 +37,7 @@ public class Add_Deck extends AppCompatActivity {
         List<String> collListName = new ArrayList<String>();
         collSpinner = findViewById(R.id.spnCollection);
 
+
         ValueEventListener valueEventListener = collRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,7 +100,7 @@ public class Add_Deck extends AppCompatActivity {
             }
             if (bFlag)
             {
-                Deck myDeck = new Deck(sName, sColl, iNoCards);
+                Deck myDeck = new Deck(sName, sColl, iNoCards, userid);
                 db.SetDeck(myDeck);
                 iv.msg("Deck Added!", Add_Deck.this);
                 startActivity(new Intent(Add_Deck.this,Deck_Screen.class));
