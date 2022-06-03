@@ -21,13 +21,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Create_Collection extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
+
+public class Create_Collection extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     EditText collectionID;
     EditText collectionName;
     EditText goalItems;
     Button createCollectionBtn;
-    private DrawerLayout mDrawerLayout; //DylanA
-    private ActionBarDrawerToggle mToggle; //DylanA
+    private DrawerLayout mDrawerLayout; //navbar
+    private ActionBarDrawerToggle mToggle; //navbar
+    private NavigationView navView;//navbar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,26 +97,21 @@ public class Create_Collection extends AppCompatActivity {
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA EVERY PAGE NEEDS A DRAWERLAYOUT ID
-        mDrawerLayout.addDrawerListener(mToggle);//DylanA
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);// EVERY PAGE NEEDS A DRAWERLAYOUT ID
+        mDrawerLayout.addDrawerListener(mToggle);
 
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mToggle.syncState();//DylanA
+
+        navView = findViewById(R.id.nav_side_menu) ;
+        navView.setNavigationItemSelectedListener(this);
 // -------------------------------------------------------------------------------------------------
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
 
-        if(mToggle.onOptionsItemSelected(item)){//DylanA
-            return true;//DylanA
-        }
-
-        return super.onOptionsItemSelected(item);//DylanA
-    }
     private Integer GenID()
     {
         final Integer[] inID = {1};
@@ -144,4 +142,32 @@ public class Create_Collection extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
+
+        if(mToggle.onOptionsItemSelected(item)){//DylanA
+            return true;//DylanA
+        }
+
+        return super.onOptionsItemSelected(item);//DylanA
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.nav_myCollections:
+                startActivity(new Intent(Create_Collection.this, Home_Page.class));
+                break;
+            case R.id.nav_decks:
+                startActivity(new Intent(Create_Collection.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                break;
+            case R.id.nav_stats:
+                startActivity(new Intent(Create_Collection.this, GoalsAndStats.class));
+                break;
+            case R.id.nav_signOut:
+                startActivity(new Intent(Create_Collection.this, MainActivity.class));//Sends User to Login Screen
+                break;
+        }
+        return true;
+    }
 }
