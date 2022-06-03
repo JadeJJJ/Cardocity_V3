@@ -25,7 +25,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -33,31 +33,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:paddingLeft="15dp"
                 android:text="Collection ID"
-                android:gravity="center"/>
+                />
 
             <TextView
                 android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:paddingLeft="15dp"
                 android:text="Collection Name:"
-                android:gravity="center"/>
+                />
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/nav_toolbar4"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/nav_toolbar4"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="380dp">
 
             <ListView
+                android:layout_marginLeft="30dp"
                 android:id="@+id/lstvCollectionsID"
                 android:layout_width="197dp"
                 android:layout_height="match_parent" />
@@ -83,7 +88,7 @@
             <Button
                 android:id="@+id/HP_Create_Collection"
                 android:layout_width="92dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_weight="1"
                 android:text="Create Collection" />
 
@@ -104,6 +109,8 @@
 
             <Spinner
                 android:id="@+id/spnCollections"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="221dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
@@ -116,10 +123,11 @@
 
             <Button
                 android:id="@+id/HP_Select_Collection"
-                android:layout_width="117dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
                 android:layout_weight="1"
-                android:text="Select Collection" />
+                android:text="Select Collection"
+                />
 
         </LinearLayout>
 
@@ -137,7 +145,7 @@
             <Button
                 android:id="@+id/HP_View_Goals"
                 android:layout_width="80dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_weight="1"
                 android:text="View Goals" />
 
