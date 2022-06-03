@@ -71,7 +71,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     Item item = pulledOrder.getValue(Item.class);
-                    if (Objects.equals(item.getUserID(), userid))
+                    if (Objects.equals(item.getUserID(), userid) && Objects.equals(item.getCollectionName(),Home_Page.sendSelectedCollection))
                     {
                         itemListName.add(item.getCardName());
                         itemListType.add(item.getCardType());
