@@ -31,6 +31,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
     private DrawerLayout mDrawerLayout; //navbar
     private ActionBarDrawerToggle mToggle; //navbar
     private NavigationView navView;//navbar
+    private Integer id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,8 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 
         createCollectionBtn.setOnClickListener(view -> {
 
-            Integer ID = GenID();
+            GenID();
+            Integer ID = id;
             String Name = collectionName.getText().toString();
             Integer Goal = 0;
             boolean bFlag = true;
@@ -99,7 +101,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
 // -------------------------------------------------------------------------------------------------
     }
 
-    private Integer GenID()
+    private void GenID()
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference itemRef = database.getReference("Collection");
@@ -112,6 +114,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
                     Collection coll = pulledOrder.getValue(Collection.class);
                     itemList.add(coll.toString());
                 }
+                id = itemList.size();
             }
 
             @Override
@@ -120,7 +123,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
             }
         });
 
-        return itemList.size() + 1;
+
     }
 
 
