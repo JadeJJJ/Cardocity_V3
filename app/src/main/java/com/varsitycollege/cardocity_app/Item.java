@@ -82,4 +82,12 @@ public class Item {
     public void setCollectionName(String collectionName) {
         this.collectionName = collectionName;
     }
+
+    public Date getAquireDate() {
+        return aquireDate;
+    }
+
+    public void setAquireDate(Date aquireDate) {
+        this.aquireDate = aquireDate;
+    }
 }
