@@ -39,6 +39,7 @@ public class View_Item extends AppCompatActivity {
     private EditText edtCardType;
     private ImageView imgView;
     private Button btnReturn;
+    private EditText edtDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class View_Item extends AppCompatActivity {
         edtCardType = findViewById(R.id.edtCardTypeView);
         imgView = findViewById(R.id.ivImageView);
         btnReturn = findViewById(R.id.btnReturn);
+        edtDate = findViewById(R.id.edtDate);
 
         itemRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,7 +67,7 @@ public class View_Item extends AppCompatActivity {
                         edtCardName.setText(item.getCardName());
                         edtCardType.setText(item.getCardType());
                         edtNumCards.setText(item.getNumberOfCards().toString());
-
+                        edtDate.setText(item.getAquireDate().toString());
 
                         StorageReference pathRef = storeRef.child("images/" + item.getCardImageLink());
                         final long myBytes = 1024 * 1024;

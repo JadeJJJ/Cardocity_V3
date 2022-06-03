@@ -11,9 +11,9 @@ public class Item {
     private String userID;
     private String cardImageLink;
     private String collectionName;
-    private Date aquireDate;
+    private String aquireDate;
 
-    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID, Date aquireDate) {
+    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID, String aquireDate) {
         this.serialNumber = serialNumber;
         this.cardName = cardName;
         this.cardType = cardType;
@@ -83,11 +83,11 @@ public class Item {
         this.collectionName = collectionName;
     }
 
-    public Date getAquireDate() {
+    public String getAquireDate() {
         return aquireDate;
     }
 
-    public void setAquireDate(Date aquireDate) {
+    public void setAquireDate(String aquireDate) {
         this.aquireDate = aquireDate;
     }
 }

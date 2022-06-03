@@ -50,7 +50,7 @@ private String userID; */
     private static final int requestImageCapture = 0;
     private static final int requestImageCapPer = 100;
     private boolean bPic = false;
-    private Date aquireDate;
+    private String aquireDate;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,19 +73,15 @@ private String userID; */
                 int month = datePickerCalendar.get((Calendar.MONTH));
                 int day = datePickerCalendar.get((Calendar.DAY_OF_MONTH));
 
-                DatePickerDialog orderDatePicker = new DatePickerDialog(
+                DatePickerDialog dp = new DatePickerDialog(
                         Add_Item.this, android.R.style.Theme_Light_Panel,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                                try {
-                                    aquireDate = new SimpleDateFormat("dd-MM-yyyy").parse(dayOfMonth + "-" + month + "-" + year);
-                                } catch (ParseException e) {
-                                    e.printStackTrace();
-                                }
+                                    aquireDate = dayOfMonth + "-" + month + "-" + year;
                             }
                         }, year, month, day);
-                orderDatePicker.show();
+                dp.show();
             }
         });
 
