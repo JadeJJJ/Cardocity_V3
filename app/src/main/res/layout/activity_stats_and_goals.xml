@@ -11,132 +11,231 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:orientation="vertical">
 
-        <!--Pie chart to display the data-->
-        <org.eazegraph.lib.charts.PieChart
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/piechart"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="6dp"
-            android:layout_weight="1"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="15dp"
-            />
-
-        <!--Creating another linear layout -->
-        <!-- to display pie chart details -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:orientation="vertical"
-            android:gravity="center_vertical"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="366dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
+            <!--Pie chart to display the data-->
+            <org.eazegraph.lib.charts.PieChart xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/piechart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+                android:padding="6dp" />
+
+            <!--Creating another linear layout -->
+            <!-- to display pie chart details -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_gravity="center_vertical">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-                <!--View to display the yellow color icon-->
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/cardocityBlue"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
 
-                <!--Text view to display R -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="R"
-                    android:paddingLeft="10dp"/>
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl1Red" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl2Blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl3Yellow" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 3" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl4Green" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl5Pink" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl6Purple" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 6" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl7Orange" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 7" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl8Black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 8" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl9Cyan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Item 9" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical">
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/cl10GreyOther" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Other" />
+
+                </LinearLayout>
 
             </LinearLayout>
-
-            <!--Linear layout to display Python-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="5dp">
-
-                <!--View to display the green color icon-->
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/cardocityGreen"/>
-
-                <!--Text view to display python text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Python"
-                    android:paddingLeft="10dp"/>
-
-            </LinearLayout>
-
-            <!--Linear layout to display C++-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="5dp">
-
-                <!--View to display the red color icon-->
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/cardocityRed"/>
-
-                <!--Text view to display C++ text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C++"
-                    android:paddingLeft="10dp"/>
-
-            </LinearLayout>
-
-            <!--Linear layout to display Java-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="5dp">
-
-                <!--View to display the blue color icon-->
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/black"/>
-
-                <!--Text view to display Java text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Java"
-                    android:paddingLeft="10dp"/>
-
-            </LinearLayout>
-            <Button
-                android:id="@+id/btnUpdateChart"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:text="Update Chart"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                />
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnUpdateChart"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Update Chart" />
+
     </LinearLayout>
-<!-- OLD CODE
+
+    <!-- OLD CODE
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

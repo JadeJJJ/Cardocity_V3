@@ -10,4 +10,16 @@
     <color name="cardocityRed">#FF0000</color>
     <color name="cardocityBlue">#0037FF</color>
     <color name="cardocityGreen">#2FFF00</color>
+
+    <!--Colours for Pie Chart-->
+    <color name="cl1Red">#FF5E5E</color>
+    <color name="cl2Blue">#00B3FF</color>
+    <color name="cl3Yellow">#FFEC03</color>
+    <color name="cl4Green">#7FE970</color>
+    <color name="cl5Pink">#FF0398</color>
+    <color name="cl6Purple">#5502BD</color>
+    <color name="cl7Orange">#FDA600</color>
+    <color name="cl8Black">#FF000000</color>
+    <color name="cl9Cyan">#85E3FF</color>
+    <color name="cl10GreyOther">#808080</color>
 </resources>
