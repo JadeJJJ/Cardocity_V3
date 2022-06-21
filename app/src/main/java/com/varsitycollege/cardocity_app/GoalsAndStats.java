@@ -24,6 +24,10 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
 // Button Clicks------------------------------------------------------------------------------------
         UpdateChartBTN = findViewById(R.id.btnUpdateChart);
         //TODO: Update Pie Chart FUNCTION
+        //TODO: Pie chart needs to be percentages of cards in deck
+        //The sections work just like a list so it is easy to add more
+        //follow this link for tut:
+        //https://www.geeksforgeeks.org/how-to-add-a-pie-chart-into-an-android-application/
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
