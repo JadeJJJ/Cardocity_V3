@@ -2,7 +2,7 @@ package com.varsitycollege.cardocity_app;
 
 public class Deck {
     private String deckName;
-    private String chooseCollection;
+    private String chooseCollection; //TODO: change to Collection name
     private Integer totalNumCars;
     private String userID;
     //TODO Need to add a deckID so that they can be linked
