@@ -12,6 +12,7 @@ public class Item {
     private String cardImageLink;
     private String collectionName;
     private String aquireDate;
+    //TODO Need to add a deckID so that they can be linked
 
     public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID, String aquireDate) {
         this.serialNumber = serialNumber;

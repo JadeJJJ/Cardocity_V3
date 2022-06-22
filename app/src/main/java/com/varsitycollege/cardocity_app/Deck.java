@@ -5,6 +5,7 @@ public class Deck {
     private String chooseCollection;
     private Integer totalNumCars;
     private String userID;
+    //TODO Need to add a deckID so that they can be linked
 
     public Deck() {
     }
