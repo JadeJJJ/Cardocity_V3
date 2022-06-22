@@ -48,7 +48,6 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
         UpdateChartBTN = findViewById(R.id.btnUpdateChart);
 // OnCreate Pie Charts------------------------------------------------------------------------------
         //TODO: Update Pie Chart FUNCTION
-        //TODO: Pie chart needs to be percentages of cards in deck
         //The sections work just like a list so it is easy to add more
         //follow this link for tut:
         //https://www.geeksforgeeks.org/how-to-add-a-pie-chart-into-an-android-application/
@@ -292,7 +291,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                 startActivity(new Intent(GoalsAndStats.this, Home_Page.class));
                 break;
             case R.id.nav_decks:
-                startActivity(new Intent(GoalsAndStats.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                startActivity(new Intent(GoalsAndStats.this, Home_Page.class)); //TODO: needs to reroute to decks activity not home_page
                 break;
             case R.id.nav_stats:
                 startActivity(new Intent(GoalsAndStats.this, GoalsAndStats.class));
