@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -113,8 +114,8 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                 }
 
                 //Sort the decks by most cards
-                Integer iTemp = 0;
-                String sTemp = "";
+                Integer iTemp;
+                String sTemp;
                 for(int i=0; i < listNoCardsInDeck.size(); i++)
                 {
                     for(int j=1; j < (listNoCardsInDeck.size()-i); j++)
@@ -284,6 +285,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
         return super.onOptionsItemSelected(item);
     }
 
+    //@SuppressLint("NonConstantResourceId") IDK if this produces errors??
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
