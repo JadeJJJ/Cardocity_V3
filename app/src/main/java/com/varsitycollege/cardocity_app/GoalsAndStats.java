@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,11 +144,98 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                 for(int i=0; i < listNoCardsInDeck.size(); i++)
                 {
                     dPerc = listNoCardsInDeck.get(i) / iTotal;
-                    listPercents.add((int) Math.round(dPerc));
+                    listPercents.add((int) (Math.round(dPerc) * 100));
                 }
 
-                //TODO: if more than 10 decks, add the rest of the cards to other
-                //TODO: Add Percentages to pie chart
+                //if more than 10 decks, add the rest of the cards to other
+                Integer iOther = 0;
+                if (listPercents.size() >= 10)
+                {
+                    for(int i=9; i < listNoCardsInDeck.size(); i++)
+                        iOther += listPercents.get(i);
+
+                    listPercents.set(9, iOther);
+                    listDeckNames.set(9, "Other");
+                }
+                //Add Percentages to pie chart
+                switch (listPercents.size())
+                {
+                    case 1:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                    break;
+                    case 2:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                    break;
+                    case 3:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                    break;
+                    case 4:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(3), listPercents.get(3),Color.parseColor("#7FE970")));
+                    break;
+                    case 5:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(3), listPercents.get(3),Color.parseColor("#7FE970")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(4), listPercents.get(4),Color.parseColor("#FF0398")));
+                    break;
+                    case 6:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(3), listPercents.get(3),Color.parseColor("#7FE970")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(4), listPercents.get(4),Color.parseColor("#FF0398")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(5), listPercents.get(5),Color.parseColor("#5502BD")));
+                    break;
+                    case 7:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(3), listPercents.get(3),Color.parseColor("#7FE970")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(4), listPercents.get(4),Color.parseColor("#FF0398")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(5), listPercents.get(5),Color.parseColor("#5502BD")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(6), listPercents.get(6),Color.parseColor("#FDA600")));
+                    break;
+                    case 8:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(3), listPercents.get(3),Color.parseColor("#7FE970")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(4), listPercents.get(4),Color.parseColor("#FF0398")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(5), listPercents.get(5),Color.parseColor("#5502BD")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(6), listPercents.get(6),Color.parseColor("#FDA600")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(7), listPercents.get(7),Color.parseColor("#FF000000")));
+                    break;
+                    case 9:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(3), listPercents.get(3),Color.parseColor("#7FE970")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(4), listPercents.get(4),Color.parseColor("#FF0398")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(5), listPercents.get(5),Color.parseColor("#5502BD")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(6), listPercents.get(6),Color.parseColor("#FDA600")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(7), listPercents.get(7),Color.parseColor("#FF000000")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(8), listPercents.get(8),Color.parseColor("#85E3FF")));
+                    break;
+                    case 10:
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(0), listPercents.get(0),Color.parseColor("#FF5E5E")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(1), listPercents.get(1),Color.parseColor("#00B3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(2), listPercents.get(2),Color.parseColor("#FFEC03")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(3), listPercents.get(3),Color.parseColor("#7FE970")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(4), listPercents.get(4),Color.parseColor("#FF0398")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(5), listPercents.get(5),Color.parseColor("#5502BD")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(6), listPercents.get(6),Color.parseColor("#FDA600")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(7), listPercents.get(7),Color.parseColor("#FF000000")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(8), listPercents.get(8),Color.parseColor("#85E3FF")));
+                        pieChart.addPieSlice(new PieModel(listDeckNames.get(9), listPercents.get(9),Color.parseColor("#808080")));
+                    break;
+                }
 
                 /*
                 ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListName);
