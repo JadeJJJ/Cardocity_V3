@@ -105,7 +105,9 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                     {
                         if (listItemDecks.get(i).equals(listDeckIDs.get(j)))
                         {
-                            listNoCardsInDeck.get(j)++;
+                            Integer iVal = listNoCardsInDeck.get(j);
+                            iVal++;
+                            listNoCardsInDeck.set(j,iVal);
                             break;
                         }
                     }
@@ -122,13 +124,13 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                         {
                             //Sorting the number of cards per deck
                             iTemp = listNoCardsInDeck.get(j-1);
-                            listNoCardsInDeck.get(j-1) = listNoCardsInDeck.get(j);
-                            listNoCardsInDeck.get(j) = iTemp;
+                            listNoCardsInDeck.set(j-1, listNoCardsInDeck.get(j));
+                            listNoCardsInDeck.set(j, iTemp);
 
                             //Sorting the names
                             sTemp = listDeckNames.get(j-1);
-                            listDeckNames.get(j-1) = listDeckNames.get(j);
-                            listDeckNames.get(j) = sTemp;
+                            listDeckNames.set(j-1, listDeckNames.get(j));
+                            listDeckNames.set(j, sTemp);
                             //The DeckIDs here can be abandoned because they are not used in the graph
                         }
 
