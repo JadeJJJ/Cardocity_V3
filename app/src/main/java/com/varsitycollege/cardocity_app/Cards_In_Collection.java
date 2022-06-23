@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,11 +40,17 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
     private ListView lstvOrderHistory;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference itemRef = database.getReference("Item");
+    private DatabaseReference collRef = database.getReference("Collection");
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     public static String selectedItem;
     private DrawerLayout mDrawerLayout; //navbar
     private ActionBarDrawerToggle mToggle; //navbar
     private NavigationView navView;//navbar
+
+    //Goal Variables
+    private int totalNumberOfCards = 0; //The amount of cards in the collection
+    private int colGoal; //The goal for the collection
+    private TextView goalTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         addItemBtn=findViewById(R.id.addItem);
         btnSelect = findViewById(R.id.btnSelectItem);
         btnAddToDeck = findViewById(R.id.btnAddtoDeck);
+        goalTextView = findViewById(R.id.txtDisplayGoal);
 
 
 
@@ -76,6 +84,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
                         itemListName.add(item.getCardName());
                         itemListType.add(item.getCardType());
                         itemListNumCards.add(item.getNumberOfCards().toString());
+                        totalNumberOfCards ++;
 
                     }
                 }
@@ -98,6 +107,23 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
                 Toast.makeText(Cards_In_Collection.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
         });
+        collRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledOrder : snapshot.getChildren()){
+                    Collection myCollection = pulledOrder.getValue(Collection.class);
+                    if(Objects.equals(Home_Page.sendSelectedCollection, myCollection.getCollectionName()))
+                    {
+                        colGoal = myCollection.getGoalItems();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         addItemBtn.setOnClickListener(view -> {
             startActivity(new Intent(Cards_In_Collection.this,Add_Item.class));
@@ -115,6 +141,8 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
             // TODO Check deck exists
             // TODO Add selected card to entered deck
         });
+
+        goalTextView.setText("Goal: " + totalNumberOfCards + "/" + colGoal); //Sets the text for the goal
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer

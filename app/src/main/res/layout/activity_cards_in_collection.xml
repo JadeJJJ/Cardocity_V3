@@ -123,6 +123,17 @@
 
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtDisplayGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Goal:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
