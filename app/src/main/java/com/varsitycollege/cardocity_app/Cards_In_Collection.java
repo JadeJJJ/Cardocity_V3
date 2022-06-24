@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -141,8 +142,14 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
             // TODO Check deck exists
             // TODO Add selected card to entered deck
         });
+        //The handler to make the TextView text change be delayed by 1200ms
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                goalTextView.setText("Goal: " + totalNumberOfCards + "/" + colGoal);
+            }
+        }, 1200);
 
-        goalTextView.setText("Goal: " + totalNumberOfCards + "/" + colGoal); //Sets the text for the goal
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
