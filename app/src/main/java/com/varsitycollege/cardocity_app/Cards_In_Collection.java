@@ -48,6 +48,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
     private DrawerLayout mDrawerLayout; //navbar
     private ActionBarDrawerToggle mToggle; //navbar
     private NavigationView navView;//navbar
+    private Button btnGen;
 
     //Goal Variables
     private int totalNumberOfCards = 0; //The amount of cards in the collection
@@ -65,7 +66,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         btnAddToDeck = findViewById(R.id.btnAddtoDeck);
         goalUniqueTextView = findViewById(R.id.txtDisplayGoal);
         totalGoalTextView = findViewById(R.id.txtDisplayTotalGoal);
-
+        btnGen = findViewById(R.id.btnGen);
 
 
         // TODO Add items from the database to the list in a collection
@@ -134,6 +135,9 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         addItemBtn.setOnClickListener(view -> {
             startActivity(new Intent(Cards_In_Collection.this,Add_Item.class));
          });
+        btnGen.setOnClickListener(view -> {
+            generateData();
+        });
 
         btnSelect.setOnClickListener(view ->{
             // TODO Check that the item exists (if not the display an error)
@@ -205,26 +209,155 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         //Preset
         String userID = MainActivity.UserID;
         String collectionName = Home_Page.sendSelectedCollection;
+        Integer iSN = 1;
     //--------------------------------------------------------------------------------------------//
-        //Item variables
-        String serialNumber = "";
-        String cardName = "";
-        String cardType = "";
-        Integer numberOfCards = 0;
-        String cardImageLink = "";
-        String aquireDate = "";
-        Integer deckIDItem = 0;
+        Deck newDeck1 = new Deck(1, "Green White", collectionName, 8, userID);
+        deckRef.push().setValue(newDeck1);
 
-        //Deck variables
-        Integer deckIDDeck = 0;
-        String deckName = "";
-        Integer totalNumCards = 0;
+        Item newItem1 = new Item(iSN.toString(), "Emma Tandris", "Creature", 1, "Default.jpg", collectionName, userID, "01-01-2019", 1);
+        itemRef.push().setValue(newItem1);
+        iSN++;
+
+        Item newItem2 = new Item(iSN.toString(), "Blossoming Sands", "Land", 4, "Default.jpg", collectionName, userID, "01-01-2019", 1);
+        itemRef.push().setValue(newItem2);
+        iSN++;
+
+        Item newItem3 = new Item(iSN.toString(), "Wilt-Leaf Liege", "Creature", 1, "Default.jpg", collectionName, userID, "01-01-2019", 1);
+        itemRef.push().setValue(newItem3);
+        iSN++;
+
+        Item newItem4 = new Item(iSN.toString(), "Sigarda, Heron's Grace", "Creature", 1, "Default.jpg", collectionName, userID, "01-01-2019", 1);
+        itemRef.push().setValue(newItem4);
+        iSN++;
+
+        //Deck 2------------------------------------------------------------------------------------
+        Deck newDeck2 = new Deck(2, "Green", collectionName, 25, userID);
+        deckRef.push().setValue(newDeck2);
+
+        Item newItem5 = new Item(iSN.toString(), "Full Art Forest", "Land", 2, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem5);
+        iSN++;
+
+        Item newItem6 = new Item(iSN.toString(), "Forest", "Land", 8, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem6);
+        iSN++;
+
+        Item newItem7 = new Item(iSN.toString(), "Forest", "Land", 8, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem7);
+        iSN++;
+
+        Item newItem8 = new Item(iSN.toString(), "Hydra Broodmaster", "Creature", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem8);
+        iSN++;
+
+        Item newItem9 = new Item(iSN.toString(), "Mossbridge Troll", "Creature", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem9);
+        iSN++;
+
+        Item newItem10 = new Item(iSN.toString(), "Fog", "Instant", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem10);
+        iSN++;
+
+        Item newItem11 = new Item(iSN.toString(), "Elvish Mystic", "Creature", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem11);
+        iSN++;
+
+        Item newItem12 = new Item(iSN.toString(), "Zendikar's Roil", "Enchantment", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem12);
+        iSN++;
+
+        Item newItem13 = new Item(iSN.toString(), "Groundskeeper", "Creature", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem13);
+        iSN++;
+
+        Item newItem14 = new Item(iSN.toString(), "Beast Within", "Instant", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem14);
+        iSN++;
+
+        Item newItem15 = new Item(iSN.toString(), "From Beyond", "Enchantment", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem15);
+        iSN++;
+
+        Item newItem16 = new Item(iSN.toString(), "Worldspin Wurm", "Creature", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem16);
+        iSN++;
+
+        Item newItem17 = new Item(iSN.toString(), "Garruk, Primal Hunter", "Planeswalker", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem17);
+        iSN++;
+
+        Item newItem18 = new Item(iSN.toString(), "Gladeheart Cavalry", "Creature", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem18);
+        iSN++;
+
+        Item newItem19 = new Item(iSN.toString(), "Second Harvest", "Instant", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem19);
+        iSN++;
+
+        Item newItem20 = new Item(iSN.toString(), "Pulse of Murasa", "Instant", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem20);
+        iSN++;
+
+        Item newItem21 = new Item(iSN.toString(), "Zendikar Resurgent", "Enchantment", 1, "Default.jpg", collectionName, userID, "29-04-2019", 2);
+        itemRef.push().setValue(newItem21);
+        iSN++;
+
+        //Deck 3------------------------------------------------------------------------------------
+        Deck newDeck3 = new Deck(3, "Artifacts", collectionName, 7, userID);
+        deckRef.push().setValue(newDeck3);
+
+        itemRef.push().setValue(new Item(iSN.toString(), "Sol Ring", "Artifact", 1, "Default.jpg", collectionName, userID, "07-07-2019", 3));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Akroma's Memorial", "Artifact", 1, "Default.jpg", collectionName, userID, "07-07-2019", 3));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Traveler's Amulet", "Artifact", 1, "Default.jpg", collectionName, userID, "07-07-2019", 3));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Loxodon Warhammer", "Artifact", 1, "Default.jpg", collectionName, userID, "07-07-2019", 3));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Elixir of Immortality", "Artifact", 1, "Default.jpg", collectionName, userID, "07-07-2019", 3));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Though Vessel", "Artifact", 1, "Default.jpg", collectionName, userID, "07-07-2019", 3));
+        iSN++;
+
+        //Deck 4------------------------------------------------------------------------------------
+        deckRef.push().setValue(new Deck(4, "White", collectionName, 24, userID));
+
+        itemRef.push().setValue(new Item(iSN.toString(), "Full Art Plain", "Land", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Plain", "Land", 8, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Espeth, Sun's Champion", "Planeswalker", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Intangible Virtue", "Enchantment", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Eyes in the Skies", "Instant", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Erase", "Instant", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Dazzling Reflection", "Instant", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Felidar Sovereign", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Inquisitor Exarch", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Mentor of the Meek", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Brimaz, King of Oreskos", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Fortified Rampart", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Pride Guardian", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Geist-Honored Monk", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Hanweir Militia Captain", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
+        itemRef.push().setValue(new Item(iSN.toString(), "Suture Priest", "Creature", 1, "Default.jpg", collectionName, userID, "07-08-2019", 4));
+        iSN++;
 
 
-        Item newItem = new Item(serialNumber, cardName, cardType, numberOfCards, cardImageLink, collectionName, userID, aquireDate, deckIDItem);
-        itemRef.push().setValue(newItem);
-        Deck newDeck = new Deck(deckIDDeck, deckName, collectionName, totalNumCards, userID);
-        deckRef.push().setValue(newDeck);
+
+
 
     }
 }
