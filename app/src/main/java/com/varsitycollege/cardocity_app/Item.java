@@ -12,9 +12,6 @@ public class Item {
     private String cardImageLink;
     private String collectionName;
     private String aquireDate;
-
-
-
     private Integer deckID;
     //TODO Need to add a deckID so that they can be linked
 

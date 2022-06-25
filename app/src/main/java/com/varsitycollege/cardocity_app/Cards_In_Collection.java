@@ -42,6 +42,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference itemRef = database.getReference("Item");
     private DatabaseReference collRef = database.getReference("Collection");
+    private DatabaseReference deckRef = database.getReference("Deck");
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     public static String selectedItem;
     private DrawerLayout mDrawerLayout; //navbar
@@ -201,7 +202,29 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
     }
 
     public void generateData(){
-        Item newItem = new Item();
-        Deck newDeck = new Deck();
+        //Preset
+        String userID = MainActivity.UserID;
+        String collectionName = Home_Page.sendSelectedCollection;
+    //--------------------------------------------------------------------------------------------//
+        //Item variables
+        String serialNumber = "";
+        String cardName = "";
+        String cardType = "";
+        Integer numberOfCards = 0;
+        String cardImageLink = "";
+        String aquireDate = "";
+        Integer deckIDItem = 0;
+
+        //Deck variables
+        Integer deckIDDeck = 0;
+        String deckName = "";
+        Integer totalNumCards = 0;
+
+
+        Item newItem = new Item(serialNumber, cardName, cardType, numberOfCards, cardImageLink, collectionName, userID, aquireDate, deckIDItem);
+        itemRef.push().setValue(newItem);
+        Deck newDeck = new Deck(deckIDDeck, deckName, collectionName, totalNumCards, userID);
+        deckRef.push().setValue(newDeck);
+
     }
 }

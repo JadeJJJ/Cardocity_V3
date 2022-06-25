@@ -6,18 +6,18 @@ public class Deck {
     private Integer deckID;
     private String deckName;
     private String chooseCollection; //TODO: change to Collection name
-    private Integer totalNumCars;
+    private Integer totalNumCards;
     private String userID;
     //TODO Need to add a deckID so that they can be linked
 
     public Deck() {
     }
 
-    public Deck(Integer deckID, String deckName, String chooseCollection, Integer totalNumCars, String userID) {
+    public Deck(Integer deckID, String deckName, String chooseCollection, Integer totalNumCards, String userID) {
         this.deckID = deckID;
         this.deckName = deckName;
         this.chooseCollection = chooseCollection;
-        this.totalNumCars = totalNumCars;
+        this.totalNumCards = totalNumCards;
         this.userID = userID;
     }
 
@@ -42,11 +42,11 @@ public class Deck {
     }
 
     public Integer getTotalNumCars() {
-        return totalNumCars;
+        return totalNumCards;
     }
 
     public void setTotalNumCars(Integer totalNumCars) {
-        this.totalNumCars = totalNumCars;
+        this.totalNumCards = totalNumCars;
     }
 
     public String getUserID() {
