@@ -160,7 +160,7 @@ public class Create_Collection extends AppCompatActivity implements NavigationVi
                 startActivity(new Intent(Create_Collection.this, Home_Page.class));
                 break;
             case R.id.nav_decks:
-                startActivity(new Intent(Create_Collection.this, Home_Page.class));
+                startActivity(new Intent(Create_Collection.this, Deck_Screen.class));
                 break;
             case R.id.nav_stats:
                 startActivity(new Intent(Create_Collection.this, GoalsAndStats.class));

@@ -188,7 +188,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
                 startActivity(new Intent(Cards_In_Collection.this, Home_Page.class));
                 break;
             case R.id.nav_decks:
-                startActivity(new Intent(Cards_In_Collection.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                startActivity(new Intent(Cards_In_Collection.this, Deck_Screen.class));//
                 break;
             case R.id.nav_stats:
                 startActivity(new Intent(Cards_In_Collection.this, GoalsAndStats.class));

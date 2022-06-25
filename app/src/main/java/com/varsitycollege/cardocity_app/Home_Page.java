@@ -159,7 +159,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(new Intent(Home_Page.this, Home_Page.class));
                 break;
             case R.id.nav_decks:
-                startActivity(new Intent(Home_Page.this, Home_Page.class));//TODO: needs to reroute to decks activity not home_page
+                startActivity(new Intent(Home_Page.this, Deck_Screen.class));
                 break;
             case R.id.nav_stats:
                 startActivity(new Intent(Home_Page.this, GoalsAndStats.class));
