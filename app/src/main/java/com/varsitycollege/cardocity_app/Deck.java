@@ -1,6 +1,9 @@
 package com.varsitycollege.cardocity_app;
 
 public class Deck {
+
+
+    private Integer deckID;
     private String deckName;
     private String chooseCollection; //TODO: change to Collection name
     private Integer totalNumCars;
@@ -10,12 +13,17 @@ public class Deck {
     public Deck() {
     }
 
-    public Deck(String deckName, String chooseCollection, Integer totalNumCars, String userID) {
+    public Deck(Integer deckID, String deckName, String chooseCollection, Integer totalNumCars, String userID) {
+        this.deckID = deckID;
         this.deckName = deckName;
         this.chooseCollection = chooseCollection;
         this.totalNumCars = totalNumCars;
         this.userID = userID;
     }
+
+    public Integer getDeckID() {return deckID; }
+
+    public void setDeckID(Integer deckID) { this.deckID = deckID; }
 
     public String getDeckName() {
         return deckName;

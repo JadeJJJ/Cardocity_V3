@@ -148,7 +148,7 @@ private String userID; */
                 //Item it = new Item(serialNumber, cardName, cardType, numberOfCards, cardImage, userID);
                 //addItem();
                 Toast.makeText(Add_Item.this, collection, Toast.LENGTH_SHORT).show();
-                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, imageLink, collection, userID, aquireDate);
+                Item myItem = new Item(serialNumber, cardName, cardType, numberOfCards, imageLink, collection, userID, aquireDate, 0);
                 db.SetItem(myItem, newImage);
                 Toast.makeText(Add_Item.this, "Item Added", Toast.LENGTH_SHORT).show();
                 iv.msg("Item Added!", Add_Item.this);

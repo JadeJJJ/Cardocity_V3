@@ -199,4 +199,9 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         }
         return true;
     }
+
+    public void generateData(){
+        Item newItem = new Item();
+        Deck newDeck = new Deck();
+    }
 }

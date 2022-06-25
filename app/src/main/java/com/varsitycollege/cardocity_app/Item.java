@@ -12,9 +12,13 @@ public class Item {
     private String cardImageLink;
     private String collectionName;
     private String aquireDate;
+
+
+
+    private Integer deckID;
     //TODO Need to add a deckID so that they can be linked
 
-    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID, String aquireDate) {
+    public Item(String serialNumber, String cardName, String cardType, Integer numberOfCards, String cardImageLink, String collectionName, String userID, String aquireDate, Integer deckID) {
         this.serialNumber = serialNumber;
         this.cardName = cardName;
         this.cardType = cardType;
@@ -23,6 +27,7 @@ public class Item {
         this.collectionName = collectionName;
         this.userID = userID;
         this.aquireDate = aquireDate;
+        this.deckID = deckID;
     }
 
     public Item() {
@@ -91,4 +96,8 @@ public class Item {
     public void setAquireDate(String aquireDate) {
         this.aquireDate = aquireDate;
     }
+
+    public Integer getDeckID() { return deckID; }
+
+    public void setDeckID(Integer deckID) { this.deckID = deckID; }
 }

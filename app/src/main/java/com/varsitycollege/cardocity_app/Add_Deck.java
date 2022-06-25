@@ -68,6 +68,7 @@ public class Add_Deck extends AppCompatActivity {
             String sName = etDeckName.getText().toString();
             String sColl = collSpinner.getSelectedItem().toString();
             Integer iNoCards = 0;
+            Integer iDeckID = 0;
             DatabaseCPrt2 db = new DatabaseCPrt2();
 
             if (!iv.NotNullorEmpty(sName))
@@ -100,7 +101,7 @@ public class Add_Deck extends AppCompatActivity {
             }
             if (bFlag)
             {
-                Deck myDeck = new Deck(sName, sColl, iNoCards, userid);
+                Deck myDeck = new Deck(iDeckID, sName, sColl, iNoCards, userid);
                 db.SetDeck(myDeck);
                 iv.msg("Deck Added!", Add_Deck.this);
                 startActivity(new Intent(Add_Deck.this,Deck_Screen.class));
