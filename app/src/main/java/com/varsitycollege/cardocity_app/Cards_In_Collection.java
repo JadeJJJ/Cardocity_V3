@@ -50,8 +50,10 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
 
     //Goal Variables
     private int totalNumberOfCards = 0; //The amount of cards in the collection
+    private int totalUniqueNumberOfCards = 0; //The amount of unique cards in the collection
     private int colGoal; //The goal for the collection
-    private TextView goalTextView;
+    private TextView goalUniqueTextView;
+    private TextView totalGoalTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,8 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         addItemBtn=findViewById(R.id.addItem);
         btnSelect = findViewById(R.id.btnSelectItem);
         btnAddToDeck = findViewById(R.id.btnAddtoDeck);
-        goalTextView = findViewById(R.id.txtDisplayGoal);
+        goalUniqueTextView = findViewById(R.id.txtDisplayGoal);
+        totalGoalTextView = findViewById(R.id.txtDisplayTotalGoal);
 
 
 
@@ -85,7 +88,8 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
                         itemListName.add(item.getCardName());
                         itemListType.add(item.getCardType());
                         itemListNumCards.add(item.getNumberOfCards().toString());
-                        totalNumberOfCards ++;
+                        totalUniqueNumberOfCards ++;
+                        totalNumberOfCards += item.getNumberOfCards();
 
                     }
                 }
@@ -146,7 +150,8 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                goalTextView.setText("Goal: " + totalNumberOfCards + "/" + colGoal);
+                goalUniqueTextView.setText("Goal(Unique Cards): " + totalUniqueNumberOfCards + "/" + colGoal);
+                totalGoalTextView.setText("Goal(Total Cards): " + totalNumberOfCards + " / " + colGoal);
             }
         }, 1200);
 
