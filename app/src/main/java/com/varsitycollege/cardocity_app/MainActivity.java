@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText LoginEmail;
     private EditText LoginPassword;
     private TextView RegisterTEXT;
+    private TextView ForgotPasswordTEXT;
     private Button Login_BTN;
     public static String UserID;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         LoginEmail.requestFocus();//to start typing immediately
         LoginPassword = findViewById(R.id.logPassword);
         RegisterTEXT = findViewById(R.id.log_Reg);
+        ForgotPasswordTEXT = findViewById(R.id.forgot_Password);
         Login_BTN = findViewById(R.id.Log_Login);
         mAuth = FirebaseAuth.getInstance();
 
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         });
         RegisterTEXT.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, Register.class));
+        });
+        ForgotPasswordTEXT.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, Forgot_Password.class));
         });
 
     }
