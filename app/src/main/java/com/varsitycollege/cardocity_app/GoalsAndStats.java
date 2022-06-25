@@ -40,6 +40,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
     // Database stuff
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference itemRef = database.getReference("Item");
+    private DatabaseReference deckRef = database.getReference("Deck");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,21 +54,21 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
         //follow this link for tut:
         //https://www.geeksforgeeks.org/how-to-add-a-pie-chart-into-an-android-application/
         String userid = MainActivity.UserID;
-        List<String> listItemDecks = new ArrayList<>(); // All the deckIDs of the cards in the collection
-        List<String> listDeckIDs = new ArrayList<>(); // All the deckIDs in a collection
+        List<Integer> listItemDecks = new ArrayList<>(); // All the deckIDs of the cards in the collection
+        List<Integer> listDeckIDs = new ArrayList<>(); // All the deckIDs in a collection
         List<String> listDeckNames = new ArrayList<>(); // All the deckNames
         List<Integer> listNoCardsInDeck = new ArrayList<>();
         List<Integer> listPercents = new ArrayList<>();
 
         //TODO: Get the DeckIDs as a list
-        /*
+
         deckRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 for (DataSnapshot pulledOrder : snapshot.getChildren()){
                     Deck deck = pulledOrder.getValue(Deck.class);
                     // Finds the Decks for that user from a collection
-                    if (Objects.equals(deck.getUserID(), userid) && Objects.equals(deck.getCollectionName(),Home_Page.sendSelectedCollection)) //&& Objects.equals(item.getDeckID(), Cards_In_Collection.sendDeckID)
+                    if (Objects.equals(deck.getUserID(), userid) && Objects.equals(deck.getChooseCollection(),Home_Page.sendSelectedCollection)) //&& Objects.equals(item.getDeckID(), Cards_In_Collection.sendDeckID)
                     {
                        listDeckIDs.add(deck.getDeckID());
                        listDeckNames.add(deck.getDeckName());
@@ -80,7 +81,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(GoalsAndStats.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
-        }); */
+        });
 
         // Gets the item
         itemRef.addValueEventListener(new ValueEventListener() {
@@ -91,10 +92,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                     // Finds the items for that user
                     if (Objects.equals(item.getUserID(), userid) && Objects.equals(item.getCollectionName(),Home_Page.sendSelectedCollection)) // && item.getDeckID(), Cards_In_Collection.sendDeckID
                     {
-                       // itemListName.add(item.getCardName());
-                       /*
                        listItemDecks.add(item.getDeckID());
-                       */
                     }
                 }
 
@@ -238,19 +236,6 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                         pieChart.addPieSlice(new PieModel(listDeckNames.get(9), listPercents.get(9),Color.parseColor("#808080")));
                     break;
                 }
-
-                /*
-                ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListName);
-                lstvCardsName.setAdapter(itemNameAdapter);
-                ArrayAdapter<String> itemTypeAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListType);
-                lstvCardsType.setAdapter(itemTypeAdapter);
-                ArrayAdapter<String> itemNumAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListNumCards);
-                lstvCardsNumCards.setAdapter(itemNumAdapter);
-
-                ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_spinner_item, itemListName);
-                spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                itemSpinner.setAdapter(spnAdapter);*/
-
             }
 
             @Override
