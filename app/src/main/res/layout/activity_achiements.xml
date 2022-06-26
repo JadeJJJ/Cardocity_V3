@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:saveEnabled="true"
     tools:context=".Achiements">
 
     <TextView
@@ -31,6 +32,8 @@
             android:layout_width="97dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:saveEnabled="true"
+            android:visibility="invisible"
             app:srcCompat="@drawable/ic_trophy" />
 
         <ImageView
@@ -38,6 +41,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:saveEnabled="true"
+            android:visibility="invisible"
             app:srcCompat="@drawable/ic_trophy" />
 
     </LinearLayout>
@@ -52,18 +57,22 @@
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:saveEnabled="true"
             android:text="Novice Collector"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/textAchieve2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:saveEnabled="true"
             android:text="Intermediate Collector"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -81,6 +90,8 @@
             android:layout_width="97dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:saveEnabled="true"
+            android:visibility="invisible"
             app:srcCompat="@drawable/ic_trophy" />
 
         <ImageView
@@ -88,6 +99,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:saveEnabled="true"
+            android:visibility="invisible"
             app:srcCompat="@drawable/ic_trophy" />
 
     </LinearLayout>
@@ -102,18 +115,22 @@
             android:layout_width="167dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:saveEnabled="true"
             android:text="Professional Collector"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/textAchieve4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:saveEnabled="true"
             android:text="Master Collector"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
