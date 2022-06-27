@@ -195,20 +195,18 @@ public class DatabaseCPrt2 {
     //The values being sent the the method that are not objects(classes) are of the existing item not the updated item
     //---------------------------------UpdateCollection-----------------------------//
     public void updateCollection(Integer collectionID, String collectionName, Collection edtColl) {
-        /* HashMap myMap = new HashMap();
-        myMap.put("Collection ID", edtColl.getCollectionID());
-        myMap.put("Collection Name", edtColl.getCollectionName());
-        myMap.put("Goal Items", edtColl.getGoalItems());*/
         collRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Collection coll = pulledData.getValue(Collection.class);
-                    if (coll.getCollectionID() == collectionID)
+                    if (coll.getCollectionID() == collectionID && flag == false)
                     {
                         String key = pulledData.getKey();
                         collRef.child(key).setValue(edtColl);
+                        flag = true;
                     }
                 }
             }
@@ -220,15 +218,17 @@ public class DatabaseCPrt2 {
         });
 
         itemRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if(item.getCollectionName().equals(collectionName))
+                    if(item.getCollectionName().equals(collectionName) && flag == false)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).child("CollectionID").setValue(edtColl.getCollectionName());
+                        flag = true;
                     }
                 }
             }
@@ -242,16 +242,19 @@ public class DatabaseCPrt2 {
 
     //---------------------------------UpdateItem-----------------------------//
     public void updateItem(String serialNumber, Item edtItem){
+
         itemRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if (item.getSerialNumber().equals(serialNumber))
+                    if (item.getSerialNumber().equals(serialNumber) && flag == false)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).setValue(edtItem);
+                        flag = true;
                     }
                 }
             }
@@ -266,15 +269,17 @@ public class DatabaseCPrt2 {
     //---------------------------------UpdateDeck-----------------------------//
     public void updateDeck(Integer deckID, Deck edtDeck){
         deckRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Deck deck = pulledData.getValue(Deck.class);
-                    if (deck.getDeckID() == deckID)
+                    if (deck.getDeckID() == deckID && flag == false)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).setValue(edtDeck);
+                        flag = true;
                     }
                 }
             }
@@ -285,15 +290,17 @@ public class DatabaseCPrt2 {
             }
         });
         itemRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if(item.getDeckID() == deckID)
+                    if(item.getDeckID() == deckID && flag == false)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).child("DeckID").setValue(edtDeck.getDeckID());
+                        flag = true;
                     }
                 }
             }
@@ -308,15 +315,17 @@ public class DatabaseCPrt2 {
     //---------------------------------DeleteCollection-----------------------------//
     public void deleteCollection(Integer collectionID, String collectionName){
         collRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Collection coll = pulledData.getValue(Collection.class);
-                    if (coll.getCollectionID() == collectionID)
+                    if (coll.getCollectionID() == collectionID && flag == false)
                     {
                         String key = pulledData.getKey();
                         collRef.child(key).removeValue();
+                        flag = true;
                     }
                 }
             }
@@ -328,15 +337,17 @@ public class DatabaseCPrt2 {
         });
 
         itemRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if(item.getCollectionName().equals(collectionName))
+                    if(item.getCollectionName().equals(collectionName) && flag == false)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).removeValue();
+                        flag = true;
                     }
                 }
             }
@@ -348,15 +359,17 @@ public class DatabaseCPrt2 {
         });
 
         deckRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Deck deck = pulledData.getValue(Deck.class);
-                    if (deck.getChooseCollection().equals(collectionName))
+                    if (deck.getChooseCollection().equals(collectionName) && flag == false)
                     {
                         String key = pulledData.getKey();
                         deckRef.child(key).removeValue();
+                        flag = true;
                     }
                 }
             }
@@ -371,15 +384,17 @@ public class DatabaseCPrt2 {
     //---------------------------------DeleteItem-----------------------------//
     public void deleteItem(String serialNumber){
         itemRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if (item.getSerialNumber().equals(serialNumber))
+                    if (item.getSerialNumber().equals(serialNumber) && flag == false)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).removeValue();
+                        flag = true;
                     }
                 }
             }
@@ -395,15 +410,17 @@ public class DatabaseCPrt2 {
     //---------------------------------DeleteDeck-----------------------------//
     public void deleteDeck(Integer deckID){
         deckRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Deck deck = pulledData.getValue(Deck.class);
-                    if (deck.getDeckID() == deckID)
+                    if (deck.getDeckID() == deckID && flag == false)
                     {
                         String key = pulledData.getKey();
                         deckRef.child(key).removeValue();
+                        flag = true;
                     }
                 }
             }
@@ -415,15 +432,17 @@ public class DatabaseCPrt2 {
         });
 
         itemRef.addValueEventListener(new ValueEventListener() {
+            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if (item.getDeckID() == deckID)
+                    if (item.getDeckID() == deckID && flag == false)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).child("DeckID").setValue(0);
+                        flag = true;
                     }
                 }
             }
