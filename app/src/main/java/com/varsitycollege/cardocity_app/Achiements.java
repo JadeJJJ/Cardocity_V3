@@ -50,7 +50,7 @@ public class Achiements extends AppCompatActivity {
                     Item item = pulledOrder.getValue(Item.class);
                     if (Objects.equals(item.getUserID(), userid))
                     {
-                        numCards ++;
+                        numCards += item.getNumberOfCards();
                     }
                 }
             }
