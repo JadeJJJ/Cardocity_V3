@@ -1,6 +1,7 @@
 package com.varsitycollege.cardocity_app;
 
 import android.graphics.Bitmap;
+import android.provider.ContactsContract;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -190,8 +191,10 @@ public class DatabaseCPrt2 {
         collRef.push().setValue(newColl);
     }
 
+    //Please note that for the update methods the objects being sent to the methods are the editted objects
+    //The values being sent the the method that are not objects(classes) are of the existing item not the updated item
     //---------------------------------UpdateCollection-----------------------------//
-    private void updateCollection(Integer collectionID, String collectionName, Collection edtColl) {
+    public void updateCollection(Integer collectionID, String collectionName, Collection edtColl) {
         /* HashMap myMap = new HashMap();
         myMap.put("Collection ID", edtColl.getCollectionID());
         myMap.put("Collection Name", edtColl.getCollectionName());
@@ -237,4 +240,49 @@ public class DatabaseCPrt2 {
         });
     }
 
+    //---------------------------------UpdateItem-----------------------------//
+    public void updateItem(String serialNumber, Item edtItem){
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Item item = pulledData.getValue(Item.class);
+                    if (item.getSerialNumber().equals(serialNumber))
+                    {
+                        String key = pulledData.getKey();
+                        itemRef.child(key).setValue(edtItem);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    //---------------------------------UpdateDeck-----------------------------//
+    public void updateDeck(Integer deckID, Deck edtDeck){
+        deckRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Deck deck = pulledData.getValue(Deck.class);
+                    if (deck.getDeckID() == deckID)
+                    {
+                        String key = pulledData.getKey();
+                        itemRef.child(key).setValue(edtDeck);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }
