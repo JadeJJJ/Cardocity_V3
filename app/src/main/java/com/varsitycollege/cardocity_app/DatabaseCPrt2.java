@@ -284,5 +284,154 @@ public class DatabaseCPrt2 {
 
             }
         });
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Item item = pulledData.getValue(Item.class);
+                    if(item.getDeckID() == deckID)
+                    {
+                        String key = pulledData.getKey();
+                        itemRef.child(key).child("DeckID").setValue(edtDeck.getDeckID());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    //---------------------------------DeleteCollection-----------------------------//
+    public void deleteCollection(Integer collectionID, String collectionName){
+        collRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Collection coll = pulledData.getValue(Collection.class);
+                    if (coll.getCollectionID() == collectionID)
+                    {
+                        String key = pulledData.getKey();
+                        collRef.child(key).removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Item item = pulledData.getValue(Item.class);
+                    if(item.getCollectionName().equals(collectionName))
+                    {
+                        String key = pulledData.getKey();
+                        itemRef.child(key).removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        deckRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Deck deck = pulledData.getValue(Deck.class);
+                    if (deck.getChooseCollection().equals(collectionName))
+                    {
+                        String key = pulledData.getKey();
+                        deckRef.child(key).removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    //---------------------------------DeleteItem-----------------------------//
+    public void deleteItem(String serialNumber){
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Item item = pulledData.getValue(Item.class);
+                    if (item.getSerialNumber().equals(serialNumber))
+                    {
+                        String key = pulledData.getKey();
+                        itemRef.child(key).removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+    //---------------------------------DeleteDeck-----------------------------//
+    public void deleteDeck(Integer deckID){
+        deckRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Deck deck = pulledData.getValue(Deck.class);
+                    if (deck.getDeckID() == deckID)
+                    {
+                        String key = pulledData.getKey();
+                        deckRef.child(key).removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Item item = pulledData.getValue(Item.class);
+                    if (item.getDeckID() == deckID)
+                    {
+                        String key = pulledData.getKey();
+                        itemRef.child(key).child("DeckID").setValue(0);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
