@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/app_name"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
 
@@ -45,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/app_name"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
 
