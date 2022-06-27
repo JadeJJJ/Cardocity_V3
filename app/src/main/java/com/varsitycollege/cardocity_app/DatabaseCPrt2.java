@@ -191,11 +191,50 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------UpdateCollection-----------------------------//
-    private void updateCollection(Collection edtColl) {
-        HashMap myMap = new HashMap();
+    private void updateCollection(Integer collectionID, String collectionName, Collection edtColl) {
+        /* HashMap myMap = new HashMap();
         myMap.put("Collection ID", edtColl.getCollectionID());
         myMap.put("Collection Name", edtColl.getCollectionName());
-        myMap.put("Goal Items", edtColl.getGoalItems());
+        myMap.put("Goal Items", edtColl.getGoalItems());*/
+        collRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Collection coll = pulledData.getValue(Collection.class);
+                    if (coll.getCollectionID() == collectionID)
+                    {
+                        String key = pulledData.getKey();
+                        collRef.child(key).setValue(edtColl);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        itemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot pulledData : snapshot.getChildren())
+                {
+                    Item item = pulledData.getValue(Item.class);
+                    if(item.getCollectionName().equals(collectionName))
+                    {
+                        String key = pulledData.getKey();
+                        itemRef.child(key).child("CollectionID").setValue(edtColl.getCollectionName());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }
