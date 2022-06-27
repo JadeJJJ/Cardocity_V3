@@ -29,7 +29,7 @@
         android:text="Serial Number" />
 
     <EditText
-        android:id="@+id/edtSerialView"
+        android:id="@+id/editSerialView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -45,7 +45,7 @@
         android:text="Card Name" />
 
     <EditText
-        android:id="@+id/edtCardNameView"
+        android:id="@+id/editCardNameView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -62,7 +62,7 @@
         android:text="Card Type" />
 
     <EditText
-        android:id="@+id/edtCardTypeView"
+        android:id="@+id/editCardTypeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -79,7 +79,7 @@
         android:text="No. of Cards" />
 
     <EditText
-        android:id="@+id/edtNoCardsView"
+        android:id="@+id/editNoCardsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -89,6 +89,24 @@
         android:singleLine="true"
         android:text="Name" />
 
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aquired Date" />
+
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:ems="10"
+        android:hint="@string/app_name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:singleLine="true" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -97,14 +115,14 @@
         android:paddingBottom="10dp">
 
         <ImageView
-            android:id="@+id/ivImageView"
+            android:id="@+id/newImage"
             android:layout_width="wrap_content"
             android:layout_height="132dp"
             android:layout_weight="1"
             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnNewPhoto"
             android:layout_width="25dp"
             android:layout_height="48dp"
             android:layout_weight="1"
@@ -118,14 +136,14 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnDeleteItem"
             android:layout_width="25dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Delete Item" />
 
         <Button
-            android:id="@+id/btnReturn"
+            android:id="@+id/btnUpdateItem"
             android:layout_width="25dp"
             android:layout_height="48dp"
             android:layout_weight="1"

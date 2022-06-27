@@ -30,7 +30,7 @@
         android:text="Serial Number" />
 
     <EditText
-        android:id="@+id/edtSerialView"
+        android:id="@+id/editSerialView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -47,7 +47,7 @@
         android:text="Card Name" />
 
     <EditText
-        android:id="@+id/edtCardNameView"
+        android:id="@+id/editCardNameView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -65,7 +65,7 @@
         android:text="Card Type" />
 
     <EditText
-        android:id="@+id/edtCardTypeView"
+        android:id="@+id/editCardTypeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -83,7 +83,7 @@
         android:text="No. of Cards" />
 
     <EditText
-        android:id="@+id/edtNoCardsView"
+        android:id="@+id/editNoCardsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -120,7 +120,7 @@
         android:paddingBottom="10dp">
 
         <ImageView
-            android:id="@+id/ivImageView"
+            android:id="@+id/newImage"
             android:layout_width="wrap_content"
             android:layout_height="132dp"
             android:layout_weight="1"
@@ -134,11 +134,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnReturn"
+            android:id="@+id/btnUpdateItem"
             android:layout_width="25dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Return" />
+
+        <Button
+            android:id="@+id/btnEditItem"
+            android:layout_width="25dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Edit Item" />
 
     </LinearLayout>
 

@@ -21,8 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class View_Item extends AppCompatActivity {
@@ -40,19 +38,21 @@ public class View_Item extends AppCompatActivity {
     private ImageView imgView;
     private Button btnReturn;
     private EditText edtDate;
+    private Button btnEditItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_item);
 
-        edtSerialNumber = findViewById(R.id.edtSerialView);
-        edtCardName = findViewById(R.id.edtCardNameView);
-        edtNumCards = findViewById(R.id.edtNoCardsView);
-        edtCardType = findViewById(R.id.edtCardTypeView);
-        imgView = findViewById(R.id.ivImageView);
-        btnReturn = findViewById(R.id.btnReturn);
+        edtSerialNumber = findViewById(R.id.editSerialView);
+        edtCardName = findViewById(R.id.editCardNameView);
+        edtNumCards = findViewById(R.id.editNoCardsView);
+        edtCardType = findViewById(R.id.editCardTypeView);
+        imgView = findViewById(R.id.newImage);
+        btnReturn = findViewById(R.id.btnUpdateItem);
         edtDate = findViewById(R.id.edtDate);
+        btnEditItem = findViewById(R.id.btnEditItem);
 
         itemRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -90,6 +90,10 @@ public class View_Item extends AppCompatActivity {
 
         btnReturn.setOnClickListener(view ->{
             startActivity(new Intent(View_Item.this,Home_Page.class));
+        });
+
+        btnEditItem.setOnClickListener(view -> {
+            startActivity(new Intent(View_Item.this, Edit_Item.class));
         });
     }
 }
