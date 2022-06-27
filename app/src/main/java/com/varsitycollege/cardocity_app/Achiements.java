@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ import java.util.Objects;
 public class Achiements extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference itemRef = database.getReference("Item");
-    private Integer numCards;
+    private Integer numCards = 0;
     private String userid = MainActivity.UserID;
     private ImageView imgAchieve1;
     private ImageView imgAchieve2;
@@ -59,7 +60,13 @@ public class Achiements extends AppCompatActivity {
                 Toast.makeText(Achiements.this, "Error Reading from Database", Toast.LENGTH_SHORT).show();
             }
         });
-        DisplayAchievements();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DisplayAchievements();
+            }
+        }, 1200);
+
     }
 
     private void DisplayAchievements()

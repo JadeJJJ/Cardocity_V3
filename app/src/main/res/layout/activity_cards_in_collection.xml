@@ -170,6 +170,7 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:contentDescription="@string/app_name"
+                app:backgroundTint="#FF6200EE"
                 app:srcCompat="@drawable/ic_trophy" />
 
         </LinearLayout>

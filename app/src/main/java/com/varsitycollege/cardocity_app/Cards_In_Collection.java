@@ -12,6 +12,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +51,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
     private ActionBarDrawerToggle mToggle; //navbar
     private NavigationView navView;//navbar
     private Button btnGen;
+    private FloatingActionButton btnAchieve;
 
     //Goal Variables
     private int totalNumberOfCards = 0; //The amount of cards in the collection
@@ -67,6 +70,7 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         goalUniqueTextView = findViewById(R.id.txtDisplayGoal);
         totalGoalTextView = findViewById(R.id.txtDisplayTotalGoal);
         btnGen = findViewById(R.id.btnGen);
+        btnAchieve = findViewById(R.id.fabAchievements);
 
 
         // TODO Add items from the database to the list in a collection
@@ -160,6 +164,12 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
             }
         }, 1200);
 
+        btnAchieve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Cards_In_Collection.this, Achiements.class));
+            }
+        });
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer
