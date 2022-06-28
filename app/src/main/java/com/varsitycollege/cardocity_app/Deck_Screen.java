@@ -44,7 +44,7 @@ public class Deck_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deck_screen);
         //FindViews
-        lstvDeck = findViewById(R.id.lstvDecks);
+        lstvDeck = findViewById(R.id.lstvDeckChecker);
         btnCreateDeck = findViewById(R.id.btnNewDeck);
         btnSelectDeck = findViewById(R.id.btnSelectDeck);
         spnSelectDeck = findViewById(R.id.spnSelectDeck);
@@ -52,19 +52,6 @@ public class Deck_Screen extends AppCompatActivity {
         String userid = MainActivity.UserID;
         //List
         List<String> listDeck = new ArrayList<>();
-        // NAV DRAWER---------------------------------------------------------------------------------------
-        // enable ActionBar app icon to behave as action to toggle nav drawer
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//DylanA
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);//DylanA EVERY PAGE NEEDS A DRAWERLAYOUT ID
-        mDrawerLayout.addDrawerListener(mToggle);//DylanA
-
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close); //DylanA
-        mToggle.syncState();//DylanA
-
-        navView = findViewById(R.id.nav_side_menu) ;
-        navView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         deckRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -106,32 +93,5 @@ public class Deck_Screen extends AppCompatActivity {
         });
 
 
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//DylanA
-
-        if(mToggle.onOptionsItemSelected(item)){//DylanA
-            return true;//DylanA
-        }
-
-        return super.onOptionsItemSelected(item);//DylanA
-    }
-
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.nav_myCollections:
-                startActivity(new Intent(Deck_Screen.this, Home_Page.class));
-                break;
-            case R.id.nav_decks:
-                 startActivity(new Intent(Deck_Screen.this, Deck_Screen.class));
-                break;
-            case R.id.nav_stats:
-                startActivity(new Intent(Deck_Screen.this, GoalsAndStats.class));
-                break;
-            case R.id.nav_signOut:
-                startActivity(new Intent(Deck_Screen.this, MainActivity.class));//Sends User to Login Screen
-                break;
-        }
-        return true;
     }
 }

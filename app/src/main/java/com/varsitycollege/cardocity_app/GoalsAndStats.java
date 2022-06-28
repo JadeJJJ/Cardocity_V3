@@ -5,13 +5,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -36,6 +36,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
     private NavigationView navView;
 
     private PieChart pieChart;
+    private ListView lstvDecks;
 
     // Database stuff
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -57,9 +58,12 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
         String userid = MainActivity.UserID;
         List<Integer> listItemDecks = new ArrayList<>(); // All the deckIDs of the cards in the collection
         List<Integer> listDeckIDs = new ArrayList<>(); // All the deckIDs in a collection
+        List<String> listDeckIDstring = new ArrayList<>(); // CHECKING IF THIS HAS VALUE
         List<String> listDeckNames = new ArrayList<>(); // All the deckNames
         List<Integer> listNoCardsInDeck = new ArrayList<>();
         List<Integer> listPercents = new ArrayList<>();
+
+        lstvDecks = findViewById(R.id.lstvDeckChecker);
 
         //TODO: Get the DeckIDs as a list
 
@@ -72,10 +76,16 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                     if (Objects.equals(deck.getUserID(), userid) && Objects.equals(deck.getChooseCollection(),Home_Page.sendSelectedCollection)) //&& Objects.equals(item.getDeckID(), Cards_In_Collection.sendDeckID)
                     {
                        listDeckIDs.add(deck.getDeckID());
+                       listDeckIDstring.add(deck.getDeckID().toString()); // CHECKER
                        listDeckNames.add(deck.getDeckName());
                        listNoCardsInDeck.add(0);
                     }
                 }
+
+                ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(GoalsAndStats.this, android.R.layout.simple_spinner_item, listDeckIDstring);
+                spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                lstvDecks.setAdapter(spnAdapter);
+
             }
 
             @Override
