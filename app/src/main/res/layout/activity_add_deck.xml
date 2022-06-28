@@ -75,14 +75,14 @@ android:layout_marginTop="70dp">
     android:layout_height="wrap_content"
     android:layout_weight="1" />
 
-<Button
-    android:id="@+id/btnCreate"
-    android:layout_width="65dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:text="Create Deck" />
+    <Button
+        android:id="@+id/btnCreateDeck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Create Deck" />
 
-<Space
+    <Space
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_weight="1" />

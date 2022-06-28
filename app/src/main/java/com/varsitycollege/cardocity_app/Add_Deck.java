@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,7 +57,7 @@ public class Add_Deck extends AppCompatActivity {
             }
         });
 // Adding Deck Button ------------------------------------------------------------------------------
-        btnAddDeck.findViewById(R.id.btnCreate);
+        btnAddDeck = findViewById(R.id.btnCreateDeck);
         btnAddDeck.setOnClickListener(view -> {
             boolean bFlag = true;
             InputValidation iv = new InputValidation();

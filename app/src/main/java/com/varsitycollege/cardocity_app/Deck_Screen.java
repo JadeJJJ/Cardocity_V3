@@ -37,7 +37,7 @@ public class Deck_Screen extends AppCompatActivity {
         setContentView(R.layout.activity_deck_screen);
         //FindViews
         lstvDeck = findViewById(R.id.lstvDecks);
-        btnCreateDeck = findViewById(R.id.btnCreateDeck);
+        btnCreateDeck = findViewById(R.id.btnNewDeck);
         btnSelectDeck = findViewById(R.id.btnSelectDeck);
         spnSelectDeck = findViewById(R.id.spnSelectDeck);
         //Get userID
