@@ -48,7 +48,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_stats_and_goals);
 // Button Clicks------------------------------------------------------------------------------------
         UpdateChartBTN = findViewById(R.id.btnUpdateChart);
-        pieChart= findViewById(R.id.piechart);
+        pieChart = findViewById(R.id.piechart);
 // OnCreate Pie Charts------------------------------------------------------------------------------
         //TODO: Update Pie Chart FUNCTION
         //The sections work just like a list so it is easy to add more
@@ -168,6 +168,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
         }
 
         //Add Percentages to pie chart
+         pieChart.addPieSlice(new PieModel("listDeckNames.get(0)", 100,Color.parseColor("#FF5E5E")));
         switch (listPercents.size())
         {
             case 1:
@@ -246,6 +247,7 @@ public class GoalsAndStats extends AppCompatActivity implements NavigationView.O
                 pieChart.addPieSlice(new PieModel(listDeckNames.get(9), listPercents.get(9),Color.parseColor("#808080")));
                 break;
         }
+        pieChart.startAnimation();
 
 // NAV DRAWER---------------------------------------------------------------------------------------
         // enable ActionBar app icon to behave as action to toggle nav drawer

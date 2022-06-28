@@ -20,7 +20,10 @@
             android:weightSum="2">
 
             <!--Pie chart to display the data-->
-            <org.eazegraph.lib.charts.PieChart xmlns:app="http://schemas.android.com/apk/res-auto"
+
+            <!--Creating another linear layout -->
+            <!-- to display pie chart details -->
+            <org.eazegraph.lib.charts.PieChart
                 android:id="@+id/piechart"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -30,8 +33,6 @@
                 android:layout_weight="1"
                 android:padding="6dp" />
 
-            <!--Creating another linear layout -->
-            <!-- to display pie chart details -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
