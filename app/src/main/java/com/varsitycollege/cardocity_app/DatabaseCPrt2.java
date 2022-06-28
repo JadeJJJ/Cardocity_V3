@@ -62,37 +62,6 @@ public class DatabaseCPrt2 {
 
     private static boolean flag = false;
 
-    //---------------------------------GetLogin-----------------------------//
-  /*  public static boolean GetLogin(String email, String password) {
-        userRef = FirebaseAuth.getInstance();
-        userRef.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    flag = true;
-                } else {
-                    flag = false;
-                }
-            }
-        });
-        return flag; // Returns list to the other class
-        //If loginList = null then must show the toast message in the Activity
-    }
-
-    //---------------------------------SetLogin-----------------------------//
-    public static boolean SetLogin(String email, String password) {
-        userRef.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    flag = true;
-                } else {
-                    flag = false;
-                }
-            }
-        });
-        return flag;
-    } */
 
     //---------------------------------GetItem-----------------------------//
     public List<Item> GetItem(){
