@@ -177,10 +177,12 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(new Intent(Home_Page.this, Home_Page.class));
                 break;
             case R.id.nav_decks:
-                startActivity(new Intent(Home_Page.this, Deck_Screen.class));
+
+                // startActivity(new Intent(Home_Page.this, Deck_Screen.class));
                 break;
             case R.id.nav_stats:
-                startActivity(new Intent(Home_Page.this, GoalsAndStats.class));
+                Toast.makeText(Home_Page.this, "Please select a collection!", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(Home_Page.this, GoalsAndStats.class));
                 break;
             case R.id.nav_signOut:
                 startActivity(new Intent(Home_Page.this, MainActivity.class));//Sends User to Login Screen
