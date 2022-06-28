@@ -31,6 +31,7 @@ import java.util.Objects;
 public class Home_Page extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Button CreateCollectionBtn;
     private Button SelectCollectionBTN;
+    private Button btnEditCollection;
     //private Spinner collSpinner;
     private DrawerLayout mDrawerLayout; //DylanA
     private ActionBarDrawerToggle mToggle; //DylanA
@@ -53,6 +54,7 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
         ListView lstvCollectionsName = findViewById(R.id.lstvCollectionsName);
         Spinner collSpinner = findViewById(R.id.spnCollections);
         String userid = MainActivity.UserID;
+        btnEditCollection = findViewById(R.id.btnEditCollection);
         collRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
@@ -135,6 +137,22 @@ public class Home_Page extends AppCompatActivity implements NavigationView.OnNav
                 else
                 {
                     startActivity(new Intent(Home_Page.this,Cards_In_Collection.class));
+                }
+            }
+        });
+
+        btnEditCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String selectedCollection = collSpinner.getSelectedItem().toString();
+                sendSelectedCollection = selectedCollection;
+                if (selectedCollection.equals(null) || selectedCollection.equals(""))
+                {
+                    Toast.makeText(Home_Page.this, "Please select a collection!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    startActivity(new Intent(Home_Page.this,Edit_Collection.class));
                 }
             }
         });

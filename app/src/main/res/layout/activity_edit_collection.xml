@@ -27,9 +27,10 @@
             android:text="Collection ID" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName13"
+            android:id="@+id/txtCollectionID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
@@ -46,7 +47,7 @@
             android:text="Change Collection Name" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName14"
+            android:id="@+id/txtCollectionName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -65,7 +66,7 @@
             android:text="Change Goal for amount of items" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName15"
+            android:id="@+id/txtCollectionGoal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

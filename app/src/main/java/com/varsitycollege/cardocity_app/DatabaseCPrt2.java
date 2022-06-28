@@ -194,19 +194,17 @@ public class DatabaseCPrt2 {
     //Please note that for the update methods the objects being sent to the methods are the editted objects
     //The values being sent the the method that are not objects(classes) are of the existing item not the updated item
     //---------------------------------UpdateCollection-----------------------------//
-    public void updateCollection(Integer collectionID, String collectionName, Collection edtColl) {
+    public void updateCollection(Integer collectionID, String collectionName, Collection edtColl, String userID) {
         collRef.addValueEventListener(new ValueEventListener() {
-            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Collection coll = pulledData.getValue(Collection.class);
-                    if (coll.getCollectionID() == collectionID && flag == false)
+                    if (coll.getCollectionName().equals(collectionName) && coll.getUserID().equals(userID))
                     {
                         String key = pulledData.getKey();
                         collRef.child(key).setValue(edtColl);
-                        flag = true;
                     }
                 }
             }
@@ -218,17 +216,16 @@ public class DatabaseCPrt2 {
         });
 
         itemRef.addValueEventListener(new ValueEventListener() {
-            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if(item.getCollectionName().equals(collectionName) && flag == false)
+                    if(item.getCollectionName().equals(collectionName))
                     {
                         String key = pulledData.getKey();
-                        itemRef.child(key).child("CollectionID").setValue(edtColl.getCollectionName());
-                        flag = true;
+                        itemRef.child(key).child("collectionName").setValue(edtColl.getCollectionName());
+
                     }
                 }
             }
