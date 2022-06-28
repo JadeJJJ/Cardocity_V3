@@ -53,7 +53,7 @@ FirebaseAuth auth;
                       }
                     }
                 });
-
+            startActivity(new Intent(Forgot_Password.this, MainActivity.class));
         });
     }
 }
