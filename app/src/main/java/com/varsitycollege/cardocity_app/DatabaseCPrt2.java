@@ -310,19 +310,17 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------DeleteCollection-----------------------------//
-    public void deleteCollection(Integer collectionID, String collectionName){
+    public void deleteCollection(String collectionName, String userID){
         collRef.addValueEventListener(new ValueEventListener() {
-            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Collection coll = pulledData.getValue(Collection.class);
-                    if (coll.getCollectionID() == collectionID && flag == false)
+                    if (coll.getCollectionName().equals(collectionName) && coll.getUserID().equals(userID))
                     {
                         String key = pulledData.getKey();
                         collRef.child(key).removeValue();
-                        flag = true;
                     }
                 }
             }
@@ -334,17 +332,15 @@ public class DatabaseCPrt2 {
         });
 
         itemRef.addValueEventListener(new ValueEventListener() {
-            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if(item.getCollectionName().equals(collectionName) && flag == false)
+                    if(item.getCollectionName().equals(collectionName))
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).removeValue();
-                        flag = true;
                     }
                 }
             }
@@ -356,17 +352,16 @@ public class DatabaseCPrt2 {
         });
 
         deckRef.addValueEventListener(new ValueEventListener() {
-            boolean flag = false;
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Deck deck = pulledData.getValue(Deck.class);
-                    if (deck.getChooseCollection().equals(collectionName) && flag == false)
+                    if (deck.getChooseCollection().equals(collectionName))
                     {
                         String key = pulledData.getKey();
                         deckRef.child(key).removeValue();
-                        flag = true;
                     }
                 }
             }

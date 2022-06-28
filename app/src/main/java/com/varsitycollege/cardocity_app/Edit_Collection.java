@@ -75,10 +75,9 @@ public class Edit_Collection extends AppCompatActivity {
         });
 
         deletedCollectionBtn.setOnClickListener(view -> {
-            //TODO Delete Collection Method
-            //TODO Push back to Collection Screen when done
-
-
+            collectionID = Integer.parseInt(txtCollectionID.getText().toString());
+            dataHand.deleteCollection(oldCollectionName, userID);
+            startActivity(new Intent(Edit_Collection.this,Home_Page.class));
         });
     }
 }
