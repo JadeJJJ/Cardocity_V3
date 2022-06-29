@@ -1,13 +1,16 @@
 package com.varsitycollege.cardocity_app;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -75,9 +78,26 @@ public class Edit_Collection extends AppCompatActivity {
         });
 
         deletedCollectionBtn.setOnClickListener(view -> {
-            collectionID = Integer.parseInt(txtCollectionID.getText().toString());
-            dataHand.deleteCollection(oldCollectionName, userID);
-            startActivity(new Intent(Edit_Collection.this,Home_Page.class));
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirm Delete")
+                    .setMessage("Are you sure?")
+                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            collectionID = Integer.parseInt(txtCollectionID.getText().toString());
+                            dataHand.deleteCollection(oldCollectionName, userID);
+                            Toast.makeText(Edit_Collection.this, "Collection Deleted!!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Edit_Collection.this,Home_Page.class));
+
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         });
     }
 }

@@ -2,10 +2,12 @@ package com.varsitycollege.cardocity_app;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -157,12 +159,29 @@ public class Edit_Item extends AppCompatActivity {
 
         });
 
-        btnDeleteItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnDeleteItem.setOnClickListener(View -> {
+                new AlertDialog.Builder(this)
+                        .setTitle("Confirm Delete")
+                        .setMessage("Are you sure?")
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dataHand.deleteItem(serialNumber);
+                                Toast.makeText(Edit_Item.this, "Collection Deleted!!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Edit_Item.this, Cards_In_Collection.class));
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+
                 dataHand.deleteItem(serialNumber);
                 startActivity(new Intent(Edit_Item.this, Cards_In_Collection.class));
-            }
         });
     }
     @Override
