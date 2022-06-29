@@ -90,7 +90,7 @@ public class Deck_Screen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectedDeck = spnSelectDeck.getSelectedItem().toString();
-               // startActivity(new Intent(Deck_Screen.this, View_deck.class)); //NEED TO GO TO SELECTED DECK OR ADD ITEM TO DECK
+                startActivity(new Intent(Deck_Screen.this, View_Deck.class));
             }
         });
 

@@ -7,8 +7,10 @@
     tools:context=".View_Deck">
 
     <LinearLayout
+        android:id="@+id/llDeckEdits"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
@@ -53,29 +55,26 @@
             android:minHeight="48dp" />
 
         <TextView
-            android:id="@+id/txColl2"
+            android:id="@+id/txTot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Collection Name" />
+            android:text="Total Number of Cards" />
 
         <EditText
-            android:id="@+id/editColl2"
+            android:id="@+id/editTot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:ems="10"
-            android:hint="Collection Name"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:inputType="number" />
 
         <LinearLayout
             android:id="@+id/llBtns"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnEdit"
+                android:id="@+id/btnEditDeck"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="clip_horizontal"
@@ -83,7 +82,7 @@
                 android:text="Edit Deck" />
 
             <Button
-                android:id="@+id/btnDelete"
+                android:id="@+id/btnDeleteDeck"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="clip_horizontal"
@@ -91,6 +90,18 @@
                 android:text="Delete Deck" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFinaliseDeck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finalise Edit" />
+
+        <Button
+            android:id="@+id/btnCancelDeckEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

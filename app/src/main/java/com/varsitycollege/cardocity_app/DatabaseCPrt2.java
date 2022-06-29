@@ -233,7 +233,7 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------UpdateDeck-----------------------------//
-    public void updateDeck(Integer deckID, Deck edtDeck){
+    public void updateDeck(Integer deckID, String deckName, Deck edtDeck){
         deckRef.addValueEventListener(new ValueEventListener() {
             boolean flag = false;
             @Override
@@ -241,7 +241,7 @@ public class DatabaseCPrt2 {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Deck deck = pulledData.getValue(Deck.class);
-                    if (deck.getDeckID() == deckID && flag == false)
+                    if (deck.getDeckName() == deckName && !flag)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).setValue(edtDeck);
@@ -262,7 +262,7 @@ public class DatabaseCPrt2 {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if(item.getDeckID() == deckID && flag == false)
+                    if(item.getDeckID() == deckID && !flag)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).child("DeckID").setValue(edtDeck.getDeckID());

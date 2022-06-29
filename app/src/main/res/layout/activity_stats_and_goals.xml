@@ -25,7 +25,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <LinearLayout
-            android:id="@+id/llTotal"
+            android:id="@+id/llTotalDeck"
             android:layout_width="match_parent"
             android:layout_height="581dp"
             android:orientation="horizontal"
