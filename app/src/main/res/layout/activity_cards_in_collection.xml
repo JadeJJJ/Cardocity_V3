@@ -84,25 +84,10 @@
             android:layout_height="393dp"
             android:orientation="horizontal">
 
-            <ListView
-                android:id="@+id/lstvCardsName"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:padding="2dp" />
-
-            <ListView
-                android:id="@+id/lstvCardsType"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:padding="2dp" />
-
-            <ListView
-                android:id="@+id/lstvCardsNumCards"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:padding="2dp" />
-
-
+            <GridView
+                android:id="@+id/myGridView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <LinearLayout

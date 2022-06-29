@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardocity_APP">
         <activity
+            android:name=".grid_view_items"
+            android:exported="false" />
+        <activity
             android:name=".View_Deck"
             android:exported="false" />
         <activity

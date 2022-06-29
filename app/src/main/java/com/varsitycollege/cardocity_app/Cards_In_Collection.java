@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -46,6 +47,8 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
     private NavigationView navView;//navbar
     private Button btnGen;
     private FloatingActionButton btnAchieve;
+    private GridView myGridView;
+    ArrayList<Item> myArrayList = new ArrayList<>();
 
     //Goal Variables
     private int totalNumberOfCards = 0; //The amount of cards in the collection
@@ -65,16 +68,17 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
         totalGoalTextView = findViewById(R.id.txtDisplayTotalGoal);
         btnGen = findViewById(R.id.btnGen);
         btnAchieve = findViewById(R.id.fabAchievements);
+        myGridView = findViewById(R.id.myGridView);
 
 
-        // TODO Add items from the database to the list in a collection
+
 // Adding to List View------------------------------------------------------------------------------
         List<String> itemListName = new ArrayList<>();
         List<String> itemListType = new ArrayList<>();
         List<String> itemListNumCards = new ArrayList<>();
-        ListView lstvCardsName = findViewById(R.id.lstvCardsName);
-        ListView lstvCardsType = findViewById(R.id.lstvCardsType);
-        ListView lstvCardsNumCards = findViewById(R.id.lstvCardsNumCards);
+        //ListView lstvCardsName = findViewById(R.id.lstvCardsName);
+        //ListView lstvCardsType = findViewById(R.id.lstvCardsType);
+        //ListView lstvCardsNumCards = findViewById(R.id.lstvCardsNumCards);
         String userid = MainActivity.UserID;
         Spinner itemSpinner = findViewById(R.id.spnSelectItem);
 
@@ -90,16 +94,20 @@ public class Cards_In_Collection extends AppCompatActivity implements Navigation
                         itemListNumCards.add(item.getNumberOfCards().toString());
                         totalUniqueNumberOfCards ++;
                         totalNumberOfCards += item.getNumberOfCards();
+                        myArrayList.add(item);
 
                     }
                 }
-
+            /*
                 ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListName);
                 lstvCardsName.setAdapter(itemNameAdapter);
                 ArrayAdapter<String> itemTypeAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListType);
                 lstvCardsType.setAdapter(itemTypeAdapter);
                 ArrayAdapter<String> itemNumAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_list_item_1, itemListNumCards);
                 lstvCardsNumCards.setAdapter(itemNumAdapter);
+                */
+                MyAdapter myAdapter = new MyAdapter(Cards_In_Collection.this, myArrayList);
+                myGridView.setAdapter(myAdapter);
 
                 ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(Cards_In_Collection.this, android.R.layout.simple_spinner_item, itemListName);
                 spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
