@@ -107,7 +107,7 @@ public class View_Deck extends AppCompatActivity {
             if (!newDeckName.isEmpty() && !newCollName.isEmpty() && newTotCards != 0)
             {
                 Deck newDeck = new Deck(deckid, newDeckName, newCollName, newTotCards, userid);
-                dataHand.updateDeck(deckid, selectedDeck, newDeck);
+                dataHand.updateDeck(deckid, selectedDeck, newDeck, userid);
                 Toast.makeText(View_Deck.this, "Deck Updated!!", Toast.LENGTH_SHORT).show();
             } else
             {

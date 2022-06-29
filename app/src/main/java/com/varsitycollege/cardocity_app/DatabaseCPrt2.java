@@ -233,19 +233,17 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------UpdateDeck-----------------------------//
-    public void updateDeck(Integer deckID, String deckName, Deck edtDeck){
+    public void updateDeck(Integer deckID, String deckName, Deck edtDeck, String userID){
         deckRef.addValueEventListener(new ValueEventListener() {
-            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Deck deck = pulledData.getValue(Deck.class);
-                    if (deck.getDeckName() == deckName && !flag)
+                    if (deck.getDeckName().equals(deckName)  && userID.equals(deck.getUserID()))
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).setValue(edtDeck);
-                        flag = true;
                     }
                 }
             }
