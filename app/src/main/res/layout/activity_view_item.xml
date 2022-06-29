@@ -114,19 +114,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="30dp"
         android:orientation="horizontal"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp">
-
-        <ImageView
-            android:id="@+id/newImage"
-            android:layout_width="wrap_content"
-            android:layout_height="132dp"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    </LinearLayout>
+        android:paddingBottom="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
