@@ -54,23 +54,11 @@
                 android:text="Select Deck" />
         </LinearLayout>
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btnNewDeck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="150dp"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/btnNewDeck"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Create Deck" />
-        </LinearLayout>
+            android:text="Create Deck" />
 
     </LinearLayout>
 

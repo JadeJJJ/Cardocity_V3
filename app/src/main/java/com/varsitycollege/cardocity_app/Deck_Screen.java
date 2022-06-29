@@ -68,7 +68,9 @@ public class Deck_Screen extends AppCompatActivity {
                 spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spnSelectDeck.setAdapter(spnAdapter);
 
-                lstvDeck.setAdapter(spnAdapter);
+                ArrayAdapter<String> spnAdapter2 = new ArrayAdapter<String>(Deck_Screen.this, android.R.layout.simple_list_item_1, listDeck);
+                spnAdapter2.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                lstvDeck.setAdapter(spnAdapter2);
             }
 
             @Override
