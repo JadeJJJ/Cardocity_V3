@@ -51,6 +51,7 @@ public class Edit_Item extends AppCompatActivity {
     private Button btnNewPhoto;
     private EditText edtDate;
     private String serialNumber;
+    private String oldCardName;
     private static final int requestImageCapture = 0;
     private static final int requestImageCapPer = 100;
     private ImageView newImageCapture;
@@ -131,6 +132,8 @@ public class Edit_Item extends AppCompatActivity {
             public void onClick(View view) {
                 if (bPic == true)
                 {
+                    oldCardName = oldItem.getCardName();
+                    serialNumber = oldItem.getSerialNumber();
                     Bitmap newImage = ((BitmapDrawable) newImageCapture.getDrawable()).getBitmap();
                     String newSerial = edtSerialNumber.getText().toString();
                     String newCardName = edtCardName.getText().toString();
@@ -139,10 +142,12 @@ public class Edit_Item extends AppCompatActivity {
                     String newImageLink = newCardName + ".jpg";
                     String newDate = edtDate.getText().toString();
                     Item newItem = new Item(newSerial, newCardName, newCardType, newCardNums, newImageLink, oldItem.getCollectionName(), userid, newDate, oldItem.getDeckID());
-                    dataHand.updateItem(serialNumber, newItem);
+                    dataHand.updateItem(serialNumber, oldCardName, newItem, userid);
                 }
                 else
                 {
+                    oldCardName = oldItem.getCardName();
+                    serialNumber = oldItem.getSerialNumber();
                     String newSerial = edtSerialNumber.getText().toString();
                     String newCardName = edtCardName.getText().toString();
                     String newCardType = edtCardType.getText().toString();
@@ -150,7 +155,7 @@ public class Edit_Item extends AppCompatActivity {
                     String newImageLink = oldItem.getCardImageLink();
                     String newDate = edtDate.getText().toString();
                     Item newItem = new Item(newSerial, newCardName, newCardType, newCardNums, newImageLink, oldItem.getCollectionName(), userid, newDate, oldItem.getDeckID());
-                    dataHand.updateItem(serialNumber, newItem);
+                    dataHand.updateItem(serialNumber, oldCardName, newItem, userid);
                 }
 
                 startActivity(new Intent(Edit_Item.this, Cards_In_Collection.class));

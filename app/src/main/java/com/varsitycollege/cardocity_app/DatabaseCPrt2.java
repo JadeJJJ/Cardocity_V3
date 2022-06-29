@@ -207,20 +207,18 @@ public class DatabaseCPrt2 {
     }
 
     //---------------------------------UpdateItem-----------------------------//
-    public void updateItem(String serialNumber, Item edtItem){
+    public void updateItem(String serialNumber, String cardName, Item edtItem, String userID){
 
         itemRef.addValueEventListener(new ValueEventListener() {
-            boolean flag = false;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot pulledData : snapshot.getChildren())
                 {
                     Item item = pulledData.getValue(Item.class);
-                    if (item.getSerialNumber().equals(serialNumber) && flag == false)
+                    if (item.getCardName() == cardName && item.getUserID() == userID)
                     {
                         String key = pulledData.getKey();
                         itemRef.child(key).setValue(edtItem);
-                        flag = true;
                     }
                 }
             }
